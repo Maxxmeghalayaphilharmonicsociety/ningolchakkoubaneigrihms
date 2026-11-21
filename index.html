@@ -13,6 +13,9 @@
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- QRCode.js Library for Instant Calendar QR Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   
   <script>
     tailwind.config = {
@@ -119,6 +122,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    /* Center QR Code Image Cleanly */
+    #calendar-qr img, #calendar-qr canvas {
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-maroon selection:text-paper-light">
@@ -178,7 +187,7 @@
         </div>
       </div>
 
-      <!-- Right Column: Invitation Typography & Live Countdown -->
+      <!-- Right Column: Invitation Typography, Live Countdown & Calendar QR -->
       <div class="lg:col-span-7 text-center lg:text-left">
         <div class="paper-layer rounded-2xl p-8 sm:p-12 shadow-papercraft">
           
@@ -256,12 +265,34 @@
             </div>
           </div>
 
-          <!-- Calendar Action Button -->
-          <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <button onclick="downloadICS()" class="bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-sm font-semibold tracking-wider uppercase px-7 py-3.5 rounded-full shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2.5 cursor-pointer">
-              <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              Add to Calendar
-            </button>
+          <!-- Save the Date QR Code & Calendar Buttons -->
+          <div class="mt-8 pt-6 border-t border-gold/30 flex flex-col sm:flex-row items-center gap-6 text-left">
+            <!-- QR Code Box -->
+            <div class="bg-white p-3 rounded-xl border border-gold/50 shadow-emboss shrink-0 text-center">
+              <div id="calendar-qr" class="w-28 h-28 flex items-center justify-center"></div>
+              <span class="block font-sans text-[9px] uppercase tracking-widest text-maroon font-semibold mt-1.5">Scan for Date</span>
+            </div>
+
+            <!-- Calendar Instructions & Direct Links -->
+            <div class="text-center sm:text-left">
+              <p class="font-display text-base font-bold text-maroon mb-1">Save the Date to Your Calendar</p>
+              <p class="font-serif text-base text-maroon-soft leading-snug mb-4">
+                Scan the QR code with your phone camera to save <strong>Sunday, 6 December 2026</strong> directly to your calendar, or use the quick links below:
+              </p>
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                <button onclick="downloadICS()" class="bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full shadow-md transition flex items-center gap-2 cursor-pointer">
+                  <svg class="w-3.5 h-3.5 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  Apple / Outlook (.ics)
+                </button>
+                <a 
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Let+us+celebrate+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-paper-light hover:bg-paper-dark text-maroon border border-gold font-sans text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition">
+                  Google Calendar ↗
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -289,7 +320,7 @@
           </div>
           <h3 class="font-display text-lg font-bold text-maroon mb-2">Ancient Royal Roots</h3>
           <p class="font-serif text-lg text-maroon-deep leading-relaxed">
-            Tracing its lineage back to ancient Meitei history—and revived into a grand annual state tradition during the reign of Maharaja Chandrakirti in the 19th century—the festival began when queens and princesses invited their brothers and paternal clans for a ceremonial reunion feast.
+            Tracing its lineage back to ancient Meitei history, and revived into a grand annual state tradition during the reign of Maharaja Chandrakirti in the 19th century, the festival began when queens and princesses invited their brothers and paternal clans for a ceremonial reunion feast.
           </p>
         </div>
 
@@ -311,7 +342,7 @@
           </div>
           <h3 class="font-display text-lg font-bold text-maroon mb-2">Blessings &amp; Community</h3>
           <p class="font-serif text-lg text-maroon-deep leading-relaxed">
-            Following the feast, Ningols offer heartfelt prayers and blessings for the health, prosperity, and longevity of their brothers and parental families—reaffirming that no matter how far life takes them, their roots and belonging remain forever intact.
+            Following the feast, Ningols offer heartfelt prayers and blessings for the health, prosperity, and longevity of their brothers and parental families, reaffirming that no matter how far life takes them, their roots and belonging remain forever intact.
           </p>
         </div>
       </div>
@@ -385,7 +416,7 @@
   <!-- Bottom Phanek Woven Border -->
   <div class="phanek-stripe w-full"></div>
 
-  <!-- Interactive Scripts: Countdown & Calendar Export -->
+  <!-- Interactive Scripts: Countdown, QR Code & Calendar Export -->
   <script>
     // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
     const eventDate = new Date("December 6, 2026 10:00:00 GMT+0530").getTime();
@@ -414,23 +445,39 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 2. Download .ics Calendar Invite
-    function downloadICS() {
-      const icsContent = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Ningol Chakouba 2026//Shillong//EN",
-        "BEGIN:VEVENT",
-        "DTSTART:20261206T043000Z",
-        "DTEND:20261206T113000Z",
-        "SUMMARY:Grand Celebration of Ningol Chakouba 2026",
-        "DESCRIPTION:Let us celebrate the enduring relationship between brothers and sisters, the joy of togetherness and the timeless values of family, tradition and belonging.",
-        "LOCATION:NEIGRIHMS Indoor Stadium, Shillong, Meghalaya",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
+    // 2. Standard vCalendar Payload for QR Code & .ics File
+    const vCalendarPayload = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Ningol Chakouba 2026//Shillong//EN",
+      "BEGIN:VEVENT",
+      "DTSTART:20261206T043000Z",
+      "DTEND:20261206T113000Z",
+      "SUMMARY:Grand Celebration of Ningol Chakouba 2026",
+      "DESCRIPTION:Celebrating the enduring relationship between brothers and sisters, the joy of togetherness and the timeless values of family, tradition and belonging.",
+      "LOCATION:NEIGRIHMS Indoor Stadium, Shillong, Meghalaya",
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\r\n");
 
-      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    // 3. Render Calendar QR Code on Page Load
+    window.addEventListener("DOMContentLoaded", function() {
+      const qrContainer = document.getElementById("calendar-qr");
+      if (qrContainer && typeof QRCode !== "undefined") {
+        new QRCode(qrContainer, {
+          text: vCalendarPayload,
+          width: 112,
+          height: 112,
+          colorDark: "#5A1E28",
+          colorLight: "#FFFFFF",
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+    });
+
+    // 4. Download .ics Calendar File
+    function downloadICS() {
+      const blob = new Blob([vCalendarPayload], { type: "text/calendar;charset=utf-8" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
       link.download = "Ningol-Chakouba-2026.ics";
