@@ -141,12 +141,12 @@
     </nav>
   </header>
 
-  <!-- MAIN SHOWCASE: Left Side Panel (Details & QR) + Right Large Card Stage -->
+  <!-- MAIN SHOWCASE: Left Side Panel (Details & Large QR) + Right Large Card Stage -->
   <section id="invitation" class="relative pt-6 pb-16 md:py-12 px-4 sm:px-6 lg:px-8 khamen-pattern">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
       
       <!-- LEFT SIDE MENU / PANEL (4 Columns on Desktop, Order 2 on Mobile so Card shows first) -->
-      <aside class="lg:col-span-4 order-2 lg:order-1 lg:sticky lg:top-20 space-y-6">
+      <aside class="lg:col-span-4 order-2 lg:order-1 space-y-6">
         
         <!-- Event Summary & Countdown Card -->
         <div class="paper-layer rounded-2xl p-6 sm:p-7 shadow-papercraft">
@@ -208,30 +208,30 @@
             </div>
           </div>
 
-          <!-- QR Code & Calendar Actions -->
-          <div class="bg-paper-base/80 rounded-xl p-4 border border-gold/30 flex items-center gap-4">
-            <div class="bg-white p-2 rounded-lg border border-gold/50 shadow-emboss shrink-0 text-center">
-              <div id="calendar-qr" class="w-24 h-24 flex items-center justify-center"></div>
-              <span class="block font-sans text-[8px] uppercase tracking-widest text-maroon font-semibold mt-1">Scan for Date</span>
+          <!-- Large Save the Date QR Code Block at Bottom of Panel -->
+          <div class="bg-paper-base/90 rounded-2xl p-5 border border-gold/40 text-center">
+            <p class="font-display text-base font-bold text-maroon mb-1">Save the Date</p>
+            <p class="font-serif text-base text-maroon-soft leading-snug mb-4">
+              Scan this QR code with your phone camera to add <strong>6 December 2026</strong> directly to your calendar:
+            </p>
+            
+            <div class="bg-white p-4 rounded-xl border-2 border-gold/50 shadow-emboss inline-block mx-auto mb-3">
+              <div id="calendar-qr" class="w-44 h-44 flex items-center justify-center"></div>
+              <span class="block font-sans text-[10px] uppercase tracking-widest text-maroon font-semibold mt-2">Scan for Calendar Event</span>
             </div>
-            <div>
-              <p class="font-display text-sm font-bold text-maroon mb-1">Save the Date</p>
-              <p class="font-serif text-sm text-maroon-soft leading-snug mb-3">
-                Scan QR with your phone or add directly to your calendar:
-              </p>
-              <div class="flex flex-col gap-2">
-                <button onclick="downloadICS()" class="w-full bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-[10px] font-semibold tracking-wider uppercase px-3 py-2 rounded-lg shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                  <svg class="w-3.5 h-3.5 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  Apple / Outlook (.ics)
-                </button>
-                <a 
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Celebrating+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full text-center bg-paper-light hover:bg-paper-dark text-maroon border border-gold font-sans text-[10px] font-semibold tracking-wider uppercase px-3 py-2 rounded-lg transition">
-                  Google Calendar ↗
-                </a>
-              </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 mt-2">
+              <button type="button" onclick="downloadICS()" class="w-full bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-xs font-semibold tracking-wider uppercase px-4 py-3 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer">
+                <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Apple / Outlook (.ics)
+              </button>
+              <a 
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Celebrating+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full text-center bg-paper-light hover:bg-paper-dark text-maroon border border-gold font-sans text-xs font-semibold tracking-wider uppercase px-4 py-3 rounded-xl transition block">
+                Google Calendar ↗
+              </a>
             </div>
           </div>
 
@@ -242,7 +242,7 @@
               <span>↓</span>
             </a>
             <a href="#details" class="hover:text-maroon font-semibold transition flex items-center gap-1">
-              <span>Venue Map</span>
+              <span>Satellite Map</span>
               <span>↓</span>
             </a>
           </div>
@@ -252,13 +252,13 @@
 
       <!-- RIGHT MAIN STAGE: Large Featured Invitation Card (8 Columns on Desktop, Order 1 on Mobile) -->
       <main class="lg:col-span-8 order-1 lg:order-2 flex flex-col items-center">
-        <div class="relative group w-full max-w-2xl">
-          <!-- Stacked 3D Papercraft Backing Layers -->
-          <div class="absolute -inset-2.5 sm:-inset-3 bg-gold/25 rounded-2xl rotate-1 transition-transform duration-500 group-hover:rotate-2"></div>
-          <div class="absolute -inset-2.5 sm:-inset-3 bg-maroon/10 rounded-2xl -rotate-1 transition-transform duration-500 group-hover:-rotate-2"></div>
+        <div class="relative w-full max-w-2xl">
+          <!-- Stacked 3D Papercraft Backing Layers (pointer-events-none so clicks always reach image) -->
+          <div class="pointer-events-none absolute -inset-2.5 sm:-inset-3 bg-gold/25 rounded-2xl rotate-1 transition-transform duration-500"></div>
+          <div class="pointer-events-none absolute -inset-2.5 sm:-inset-3 bg-maroon/10 rounded-2xl -rotate-1 transition-transform duration-500"></div>
           
           <!-- Primary Invitation Card Frame -->
-          <div class="relative rounded-2xl overflow-hidden shadow-papercraft-lg border-2 border-gold/60 bg-paper-base">
+          <div class="relative z-10 rounded-2xl overflow-hidden shadow-papercraft-lg border-2 border-gold/60 bg-paper-base">
             <img 
               id="main-card-img"
               src="card-hero.png" 
@@ -276,15 +276,15 @@
           </div>
 
           <!-- Card Action Bar Below Large Image -->
-          <div class="mt-5 flex flex-wrap items-center justify-center gap-4">
-            <button onclick="openLightbox()" class="inline-flex items-center gap-2 bg-paper-light hover:bg-paper-dark text-maroon border border-gold/60 px-5 py-2.5 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition cursor-pointer">
+          <div class="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-4">
+            <button type="button" onclick="openLightbox()" class="inline-flex items-center gap-2 bg-paper-light hover:bg-paper-dark text-maroon border border-gold/60 px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition cursor-pointer">
               <svg class="w-4 h-4 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               View Full Screen
             </button>
-            <a href="card-hero.png" download="Ningol-Chakouba-2026-Invitation.png" class="inline-flex items-center gap-2 bg-maroon hover:bg-maroon-deep text-paper-light px-5 py-2.5 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition">
+            <button type="button" onclick="downloadCardImage()" class="inline-flex items-center gap-2 bg-maroon hover:bg-maroon-deep text-paper-light px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition cursor-pointer">
               <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               Download Invitation Card
-            </a>
+            </button>
           </div>
         </div>
       </main>
@@ -340,14 +340,14 @@
     </div>
   </section>
 
-  <!-- VENUE & DIRECTIONS SECTION -->
+  <!-- VENUE & SATELLITE MAP SECTION -->
   <section id="details" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 khamen-pattern">
     <div class="max-w-6xl mx-auto">
       <div class="paper-layer rounded-2xl p-6 sm:p-10 shadow-papercraft grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
-          <p class="font-sans text-xs uppercase tracking-[0.2em] text-gold-dark font-semibold mb-2">Location &amp; Directions</p>
+          <p class="font-sans text-xs uppercase tracking-[0.2em] text-gold-dark font-semibold mb-2">Satellite View &amp; Directions</p>
           <h2 class="font-display text-2xl sm:text-3xl font-bold text-maroon mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-maroon-deep mb-6">
@@ -365,20 +365,20 @@
           </div>
 
           <a 
-            href="https://www.google.com/maps/search/?api=1&query=NEIGRIHMS+Indoor+Stadium+Shillong" 
+            href="https://www.google.com/maps/search/?api=1&query=25.5919,91.9367" 
             target="_blank" 
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-xs font-semibold uppercase tracking-widest px-6 py-3.5 rounded-full shadow-md transition">
-            Open in Google Maps ↗
+            Open Stadium in Google Maps ↗
           </a>
         </div>
 
-        <!-- Embedded Google Map (7 cols) -->
-        <div class="lg:col-span-7 rounded-xl overflow-hidden border border-gold/40 shadow-inner bg-paper-dark">
+        <!-- Zoomed-In Satellite Google Map (7 cols) -->
+        <div class="lg:col-span-7 rounded-xl overflow-hidden border-2 border-gold/50 shadow-inner bg-paper-dark">
           <iframe 
-            title="NEIGRIHMS Indoor Stadium Shillong Map"
-            src="https://www.google.com/maps?q=NEIGRIHMS+Indoor+Stadium,+Shillong,+Meghalaya&output=embed"
-            class="w-full h-72 sm:h-80 border-0"
+            title="NEIGRIHMS Indoor Stadium Shillong Satellite Map"
+            src="https://maps.google.com/maps?q=25.5919,91.9367+(NEIGRIHMS%20Indoor%20Stadium)&t=k&z=18&ie=UTF8&iwloc=&output=embed"
+            class="w-full h-80 sm:h-96 border-0"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
@@ -408,16 +408,21 @@
   <div class="phanek-stripe w-full"></div>
 
   <!-- Full-Screen Lightbox Modal for Inspecting Card Details -->
-  <div id="card-lightbox" class="fixed inset-0 z-50 hidden bg-maroon-deep/90 backdrop-blur-sm p-4 sm:p-8 flex items-center justify-center" onclick="closeLightbox()">
-    <div class="relative max-w-3xl max-h-full flex flex-col items-center" onclick="event.stopPropagation()">
-      <button onclick="closeLightbox()" class="mb-3 self-end bg-paper-light text-maroon hover:bg-gold-light px-4 py-1.5 rounded-full font-sans text-xs uppercase tracking-widest font-semibold shadow-lg cursor-pointer">
-        Close ✕
-      </button>
-      <img src="card-hero.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto rounded-xl border-2 border-gold shadow-2xl" />
+  <div id="card-lightbox" class="fixed inset-0 z-50 hidden bg-maroon-deep/95 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full max-h-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <div class="w-full max-w-xl flex items-center justify-between mb-3">
+        <button type="button" onclick="downloadCardImage()" class="bg-maroon text-gold-light border border-gold/50 hover:bg-maroon-soft px-4 py-2 rounded-full font-sans text-xs uppercase tracking-widest font-semibold shadow-lg cursor-pointer">
+          Download Image ↓
+        </button>
+        <button type="button" onclick="closeLightbox()" class="bg-paper-light text-maroon hover:bg-gold-light px-4 py-2 rounded-full font-sans text-xs uppercase tracking-widest font-semibold shadow-lg cursor-pointer">
+          Close ✕
+        </button>
+      </div>
+      <img id="lightbox-img" src="card-hero.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-gold shadow-2xl" />
     </div>
   </div>
 
-  <!-- Interactive Scripts: Countdown, QR Code, Lightbox & Calendar Export -->
+  <!-- Interactive Scripts: Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
   <script>
     // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
     const eventDate = new Date("December 6, 2026 10:00:00 GMT+0530").getTime();
@@ -461,14 +466,14 @@
       "END:VCALENDAR"
     ].join("\r\n");
 
-    // 3. Render Calendar QR Code on Page Load
+    // 3. Render Larger Calendar QR Code (176x176px) on Page Load
     window.addEventListener("DOMContentLoaded", function() {
       const qrContainer = document.getElementById("calendar-qr");
       if (qrContainer && typeof QRCode !== "undefined") {
         new QRCode(qrContainer, {
           text: vCalendarPayload,
-          width: 96,
-          height: 96,
+          width: 176,
+          height: 176,
           colorDark: "#5A1E28",
           colorLight: "#FFFFFF",
           correctLevel: QRCode.CorrectLevel.M
@@ -487,14 +492,51 @@
       document.body.removeChild(link);
     }
 
-    // 5. Lightbox Controls
+    // 5. Force Reliable Card Image Download Across Desktop & Mobile Browsers
+    async function downloadCardImage() {
+      const imgEl = document.getElementById("main-card-img");
+      const imgSrc = imgEl ? imgEl.src : "card-hero.png";
+      const fileName = "Ningol-Chakouba-2026-Invitation.png";
+
+      try {
+        const response = await fetch(imgSrc);
+        if (!response.ok) throw new Error("Network response was not ok");
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      } catch (err) {
+        // Fallback if opened directly from local file:// protocol
+        const link = document.createElement("a");
+        link.href = "card-hero.png";
+        link.download = fileName;
+        link.target = "_blank";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    // 6. Full-Screen Lightbox Controls
     function openLightbox() {
-      document.getElementById("card-lightbox").classList.remove("hidden");
+      const lightbox = document.getElementById("card-lightbox");
+      const mainImg = document.getElementById("main-card-img");
+      const lightboxImg = document.getElementById("lightbox-img");
+      if (mainImg && mainImg.src) {
+        lightboxImg.src = mainImg.src;
+      }
+      lightbox.classList.remove("hidden");
       document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
-      document.getElementById("card-lightbox").classList.add("hidden");
+      const lightbox = document.getElementById("card-lightbox");
+      lightbox.classList.add("hidden");
       document.body.style.overflow = "";
     }
 
