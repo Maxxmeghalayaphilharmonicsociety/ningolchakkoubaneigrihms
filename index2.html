@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ningol Chakouba 2026 | Grand Celebration in Shillong</title>
+  <meta name="description" content="You and your entire family members are cordially invited to the Grand Celebration of Ningol Chakouba on December 6, 2026 at NEIGRIHMS Indoor Stadium, Shillong." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- QRCode.js Library for Instant Calendar QR Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emeraldTeal: {
+              deep: '#0D2C2A',
+              DEFAULT: '#14423F',
+              mid: '#1D5753',
+              light: '#2A6F6A',
+            },
+            bamboo: {
+              light: '#F6EFE2',
+              DEFAULT: '#E8D5B5',
+              dark: '#CBB087',
+            },
+            festiveGold: {
+              light: '#F3DC9E',
+              DEFAULT: '#D6A84F',
+              dark: '#9E7324',
+            },
+            marigold: {
+              DEFAULT: '#E87A1E',
+              soft: '#F49D4B',
+            },
+            lotusBloom: {
+              crimson: '#9E2342',
+              rose: '#D64974',
+              blush: '#F2C9BE',
+            }
+          },
+          fontFamily: {
+            display: ['"Cinzel Decorative"', 'serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tealCraft': '0 14px 34px -8px rgba(8, 28, 26, 0.45), 0 4px 12px -2px rgba(214, 168, 79, 0.14)',
+            'tealCraftLg': '0 26px 64px -14px rgba(6, 22, 20, 0.65)',
+            'goldInset': 'inset 0 1px 1px rgba(243, 220, 158, 0.45), 0 6px 16px rgba(8, 28, 26, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Rich Deep Emerald Teal Backdrop Inspired by Sample 2 Card */
+    body {
+      background-color: #123B38;
+      background-image: 
+        radial-gradient(at 12% 12%, rgba(232, 122, 30, 0.12) 0px, transparent 48%),
+        radial-gradient(at 88% 20%, rgba(214, 73, 116, 0.12) 0px, transparent 45%),
+        radial-gradient(at 80% 88%, rgba(214, 168, 79, 0.16) 0px, transparent 52%),
+        linear-gradient(160deg, #164743 0%, #103532 55%, #0B2624 100%);
+      color: #F6EFE2;
+    }
+
+    /* Woven Phanek & Lantern Ribbon Inspired Divider */
+    .phanek-stripe {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #9E2342 0px,
+        #9E2342 18px,
+        #D6A84F 18px,
+        #D6A84F 24px,
+        #E87A1E 24px,
+        #E87A1E 32px,
+        #14423F 32px,
+        #14423F 40px,
+        #F6EFE2 40px,
+        #F6EFE2 44px
+      );
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Subtle Khamen Chatpa & Lotus Medallion Watermark on Teal */
+    .khamen-teal-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F3DC9E' stroke-width='1' stroke-opacity='0.07'%3E%3Cpath d='M36 6 C48 6, 66 24, 66 36 C66 48, 48 66, 36 66 C24 66, 6 48, 6 36 C6 24, 24 6, 36 6 Z'/%3E%3Cpath d='M36 16 C44 16, 56 28, 56 36 C56 44, 44 56, 36 56 C28 56, 16 44, 16 36 C16 28, 28 16, 36 16 Z'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Layered Teal & Gold Panel Surface */
+    .teal-panel {
+      background: linear-gradient(150deg, rgba(25, 76, 72, 0.94) 0%, rgba(15, 51, 48, 0.97) 100%);
+      border: 1px solid rgba(214, 168, 79, 0.42);
+      position: relative;
+    }
+
+    .teal-panel::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(243, 220, 158, 0.16);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    /* Shimmering Festive Gold Typography */
+    .gold-foil {
+      background: linear-gradient(135deg, #F6E2A8 0%, #D6A84F 48%, #F3DC9E 75%, #B88930 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Center QR Code Image Cleanly */
+    #calendar-qr img, #calendar-qr canvas {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Map Styled to Match Deep Emerald Teal, Bamboo Cream & Gold Theme */
+    .themed-map-wrapper {
+      position: relative;
+      background-color: #14423F;
+    }
+
+    .themed-map-iframe {
+      filter: sepia(38%) hue-rotate(118deg) saturate(135%) brightness(86%) contrast(104%);
+      transition: filter 0.3s ease;
+    }
+
+    .themed-map-wrapper:hover .themed-map-iframe {
+      filter: sepia(25%) hue-rotate(118deg) saturate(125%) brightness(92%) contrast(102%);
+    }
+
+    .themed-map-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 32px rgba(10, 36, 34, 0.45);
+      border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-festiveGold selection:text-emeraldTeal-deep">
+
+  <!-- Top Woven Ribbon Border -->
+  <div class="phanek-stripe w-full sticky top-0 z-50"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-2 z-40 px-4 pt-3">
+    <nav class="max-w-7xl mx-auto bg-emeraldTeal-deep/90 backdrop-blur-md border border-festiveGold/40 rounded-full px-6 py-3 shadow-tealCraft flex items-center justify-between">
+      <a href="#" class="font-display font-bold text-festiveGold-light text-sm sm:text-base tracking-wider flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-marigold inline-block shadow-sm"></span>
+        NINGOL CHAKOUBA 2026
+      </a>
+      <div class="flex items-center gap-5 sm:gap-8 font-serif text-base sm:text-lg font-semibold text-bamboo-light">
+        <a href="#invitation" class="hover:text-festiveGold-light transition">Invitation Card</a>
+        <a href="#heritage" class="hover:text-festiveGold-light transition">Heritage</a>
+        <a href="#details" class="hover:text-festiveGold-light transition">Venue</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN SHOWCASE: Left Side Panel (Details & Large QR with Dragon) + Right Large Card Stage -->
+  <section id="invitation" class="relative pt-6 pb-16 md:py-12 px-4 sm:px-6 lg:px-8 khamen-teal-pattern">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      
+      <!-- LEFT SIDE MENU / PANEL (4 Columns on Desktop, Order 2 on Mobile so Card shows first) -->
+      <aside class="lg:col-span-4 order-2 lg:order-1 space-y-6">
+        
+        <div class="teal-panel rounded-2xl p-6 sm:p-7 shadow-tealCraft">
+          <p class="font-sans text-[11px] uppercase tracking-[0.25em] text-marigold-soft font-semibold mb-2">
+            Cordial Invitation
+          </p>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold text-bamboo-light leading-tight mb-3">
+            HAPPY <span class="gold-foil block">NINGOL CHAKOUBA!</span>
+          </h1>
+
+          <p class="font-serif text-lg text-bamboo-light/90 leading-relaxed mb-5">
+            Celebrating the enduring relationship between brothers and sisters, the joy of togetherness, and the timeless values of family, tradition, and belonging.
+          </p>
+
+          <!-- Compact Date & Venue List -->
+          <div class="space-y-3.5 my-5 border-y border-festiveGold/25 py-4">
+            <div class="flex items-center gap-3.5">
+              <div class="bg-festiveGold text-emeraldTeal-deep rounded-lg px-3 py-1.5 text-center shrink-0 shadow-goldInset">
+                <span class="block font-sans text-[9px] uppercase tracking-wider font-bold">DEC</span>
+                <span class="block font-display text-xl font-bold leading-none">06</span>
+              </div>
+              <div>
+                <p class="font-sans text-[10px] uppercase tracking-wider text-festiveGold-light font-semibold">Date &amp; Day</p>
+                <p class="font-serif text-lg font-bold text-bamboo-light leading-tight">Sunday, 6 December 2026</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3.5">
+              <div class="bg-lotusBloom-crimson text-festiveGold-light border border-festiveGold/40 rounded-lg p-2.5 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-sans text-[10px] uppercase tracking-wider text-festiveGold-light font-semibold">Venue</p>
+                <p class="font-serif text-lg font-bold text-bamboo-light leading-tight">NEIGRIHMS Indoor Stadium, Shillong</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Countdown -->
+          <div class="mb-6">
+            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-bamboo-DEFAULT/80 mb-2.5 text-center">Countdown to the Celebration</p>
+            <div id="countdown" class="grid grid-cols-4 gap-2">
+              <div class="bg-emeraldTeal-deep text-bamboo-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-festiveGold/40">
+                <span id="days" class="block font-display text-lg font-bold text-festiveGold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Days</span>
+              </div>
+              <div class="bg-emeraldTeal-deep text-bamboo-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-festiveGold/40">
+                <span id="hours" class="block font-display text-lg font-bold text-festiveGold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Hours</span>
+              </div>
+              <div class="bg-emeraldTeal-deep text-bamboo-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-festiveGold/40">
+                <span id="minutes" class="block font-display text-lg font-bold text-festiveGold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Mins</span>
+              </div>
+              <div class="bg-emeraldTeal-deep text-bamboo-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-festiveGold/40">
+                <span id="seconds" class="block font-display text-lg font-bold text-festiveGold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Secs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Large Save the Date QR Code Block with Centered Pakhangba Dragon Emblem -->
+          <div class="bg-emeraldTeal-deep/85 rounded-2xl p-5 border border-festiveGold/40 text-center">
+            <p class="font-display text-base font-bold text-festiveGold-light mb-1">Save the Date</p>
+            <p class="font-serif text-base text-bamboo-DEFAULT leading-snug mb-4">
+              Scan this QR code with your phone camera to add <strong class="text-bamboo-light">6 December 2026</strong> directly to your calendar:
+            </p>
+            
+            <div class="bg-bamboo-light p-4 rounded-xl border-2 border-festiveGold shadow-goldInset inline-block mx-auto mb-3">
+              <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                <div id="calendar-qr" class="w-44 h-44 flex items-center justify-center"></div>
+                
+                <!-- Embedded Pakhangba Dragon Medallion Overlay -->
+                <svg class="w-12 h-12 rounded-full shadow-md pointer-events-none absolute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Pakhangba Dragon Emblem">
+                  <defs>
+                    <linearGradient id="qrTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1D5753" />
+                      <stop offset="100%" stop-color="#0D2C2A" />
+                    </linearGradient>
+                    <linearGradient id="qrGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#F3DC9E" />
+                      <stop offset="50%" stop-color="#D6A84F" />
+                      <stop offset="100%" stop-color="#9E7324" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="60" cy="60" r="58" fill="#F6EFE2" stroke="url(#qrGoldGrad)" stroke-width="3" />
+                  <circle cx="60" cy="60" r="51" fill="url(#qrTealGrad)" stroke="url(#qrGoldGrad)" stroke-width="1.5" />
+                  <circle cx="60" cy="60" r="45.5" fill="none" stroke="#F3DC9E" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.85" />
+                  <circle cx="60" cy="60" r="40" fill="#F6EFE2" stroke="url(#qrGoldGrad)" stroke-width="1.5" />
+                  <!-- Coiled Pakhangba Dragon -->
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#14423F" stroke-width="10.5" stroke-linecap="round" />
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="url(#qrGoldGrad)" stroke-width="7.5" stroke-linecap="round" />
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#F6EFE2" stroke-width="1.4" stroke-dasharray="2.5 3.5" stroke-linecap="round" opacity="0.9" />
+                  <path d="M 42 84 L 33 88 L 37 80 Z" fill="#9E2342" stroke="url(#qrGoldGrad)" stroke-width="0.8" />
+                  <path d="M 63 24 L 71 16 L 67 25 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="0.7" />
+                  <path d="M 67 26 L 77 20 L 70 28 Z" fill="#E87A1E" stroke="url(#qrGoldGrad)" stroke-width="0.7" />
+                  <path d="M 69 29 L 79 26 L 71 31 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="0.7" />
+                  <path d="M 62 23 C 54 22, 47 25, 44 29 L 49 31 L 45 34 C 50 36, 57 35, 63 32 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="1" stroke-linejoin="round" />
+                  <path d="M 46 31 Q 39 29 37 33" fill="none" stroke="#9E7324" stroke-width="1" stroke-linecap="round" />
+                  <circle cx="55" cy="27.5" r="1.5" fill="#0D2C2A" />
+                  <circle cx="54.6" cy="27.1" r="0.5" fill="#F6EFE2" />
+                </svg>
+              </div>
+              <span class="block font-sans text-[10px] uppercase tracking-widest text-emeraldTeal-deep font-bold mt-2">Scan for Calendar Event</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 mt-2">
+              <button type="button" onclick="downloadICS()" class="w-full bg-festiveGold hover:bg-festiveGold-light text-emeraldTeal-deep font-sans text-xs font-bold tracking-wider uppercase px-4 py-3 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer">
+                <svg class="w-4 h-4 text-emeraldTeal-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Apple / Outlook (.ics)
+              </button>
+              <a 
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Celebrating+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full text-center bg-emeraldTeal-mid hover:bg-emeraldTeal-light text-bamboo-light border border-festiveGold/50 font-sans text-xs font-semibold tracking-wider uppercase px-4 py-3 rounded-xl transition block">
+                Google Calendar ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Jump Links inside Side Menu -->
+          <div class="mt-5 pt-4 border-t border-festiveGold/25 flex items-center justify-between text-xs font-sans uppercase tracking-wider text-bamboo-DEFAULT">
+            <a href="#heritage" class="hover:text-festiveGold-light font-semibold transition flex items-center gap-1">
+              <span>Tradition &amp; Heritage</span>
+              <span>↓</span>
+            </a>
+            <a href="#details" class="hover:text-festiveGold-light font-semibold transition flex items-center gap-1">
+              <span>Venue Map</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT MAIN STAGE: Large Featured Invitation Card (8 Columns on Desktop, Order 1 on Mobile) -->
+      <main class="lg:col-span-8 order-1 lg:order-2 flex flex-col items-center">
+        <div class="relative w-full max-w-2xl">
+          <!-- Stacked Festive Backing Layers -->
+          <div class="pointer-events-none absolute -inset-2.5 sm:-inset-3 bg-festiveGold/25 rounded-2xl rotate-1 transition-transform duration-500"></div>
+          <div class="pointer-events-none absolute -inset-2.5 sm:-inset-3 bg-marigold/15 rounded-2xl -rotate-1 transition-transform duration-500"></div>
+          
+          <!-- Primary Invitation Card Frame -->
+          <div class="relative z-10 rounded-2xl overflow-hidden shadow-tealCraftLg border-2 border-festiveGold/70 bg-emeraldTeal">
+            <img 
+              id="main-card-img"
+              src="sample-2-card.jpg" 
+              alt="Ningol Chakouba 2026 Emerald Teal Invitation Card with Lotus, Marigold, Pakhangba Dragon, and Bamboo Basket"
+              class="w-full h-auto object-contain block cursor-zoom-in"
+              onclick="openLightbox()"
+              onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
+            />
+            <!-- Fallback Display if sample-2-card.jpg is not yet placed in folder -->
+            <div id="fallback-art" style="display:none;" class="aspect-[2/3] p-10 flex-col items-center justify-center text-center bg-gradient-to-b from-emeraldTeal-mid to-emeraldTeal-deep">
+              <div class="w-24 h-24 rounded-full border-2 border-festiveGold flex items-center justify-center mb-4 text-festiveGold-light font-display text-3xl">❀</div>
+              <p class="font-display text-festiveGold-light font-bold text-xl mb-2">Ningol Chakouba 2026</p>
+              <p class="font-serif italic text-bamboo-DEFAULT text-lg max-w-md">Place your sample 2 card image in the same folder named <code class="bg-emeraldTeal-deep px-2 py-0.5 rounded text-sm text-festiveGold-light">sample-2-card.jpg</code> to display the full high-resolution artwork here.</p>
+            </div>
+          </div>
+
+          <!-- Card Action Bar Below Large Image -->
+          <div class="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-4">
+            <button type="button" onclick="openLightbox()" class="inline-flex items-center gap-2 bg-emeraldTeal-mid hover:bg-emeraldTeal-light text-bamboo-light border border-festiveGold/60 px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-md transition cursor-pointer">
+              <svg class="w-4 h-4 text-festiveGold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              View Full Screen
+            </button>
+            <button type="button" onclick="downloadCardImage()" class="inline-flex items-center gap-2 bg-festiveGold hover:bg-festiveGold-light text-emeraldTeal-deep px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-bold shadow-md transition cursor-pointer">
+              <svg class="w-4 h-4 text-emeraldTeal-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Invitation Card
+            </button>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- TRADITION & HERITAGE OF NINGOL CHAKOUBA SECTION -->
+  <section id="heritage" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-emeraldTeal-deep/65 border-y border-festiveGold/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="font-sans text-xs uppercase tracking-[0.25em] text-marigold-soft font-semibold mb-2">Sacred Cultural Legacy</p>
+        <h2 class="font-display text-2xl sm:text-4xl font-bold text-festiveGold-light mb-4">Tradition &amp; Heritage of Ningol Chakouba</h2>
+        <p class="font-serif text-lg sm:text-xl text-bamboo-DEFAULT max-w-3xl mx-auto leading-relaxed">
+          Celebrated across Manipur and by the Manipuri diaspora worldwide, <strong class="text-bamboo-light">Ningol Chakouba</strong> (literally <em>“Invitation to the Daughters for a Feast”</em>) is the grandest socio-cultural festival dedicated to strengthening the sacred bond of love between married daughters (<em>Ningols</em>), their brothers, and their parental homes (<em>Mapam</em>).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <!-- Pillar 1: Royal Origins -->
+        <div class="teal-panel rounded-xl p-7 shadow-tealCraft hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-full bg-festiveGold/15 border border-festiveGold/50 flex items-center justify-center text-festiveGold-light mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-festiveGold-light mb-2">Ancient Royal Roots</h3>
+          <p class="font-serif text-lg text-bamboo-light/90 leading-relaxed">
+            Tracing its lineage back to ancient Meitei history, and revived into a grand annual state tradition during the reign of Maharaja Chandrakirti in the 19th century, the festival began when queens and princesses invited their brothers and paternal clans for a ceremonial reunion feast.
+          </p>
+        </div>
+
+        <!-- Pillar 2: The Ceremonial Feast -->
+        <div class="teal-panel rounded-xl p-7 shadow-tealCraft hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-full bg-marigold/20 border border-marigold-soft/50 flex items-center justify-center text-marigold-soft mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-festiveGold-light mb-2">The Grand Feast &amp; Gifts</h3>
+          <p class="font-serif text-lg text-bamboo-light/90 leading-relaxed">
+            Dressed in radiant traditional <em>Phanek</em> and delicate <em>Innaphi</em>, Ningols arrive bearing seasonal fruits, flowers, and sweets, while brothers and parents lovingly prepare an elaborate traditional feast and present cherished gifts (<em>Khudol</em>) as tokens of lifelong affection and support.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Blessings & Unity -->
+        <div class="teal-panel rounded-xl p-7 shadow-tealCraft hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-full bg-lotusBloom-crimson/30 border border-lotusBloom-rose/50 flex items-center justify-center text-lotusBloom-blush mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-festiveGold-light mb-2">Blessings &amp; Community</h3>
+          <p class="font-serif text-lg text-bamboo-light/90 leading-relaxed">
+            Following the feast, Ningols offer heartfelt prayers and blessings for the health, prosperity, and longevity of their brothers and parental families, reaffirming that no matter how far life takes them, their roots and belonging remain forever intact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE & THEME-MATCHED MAP SECTION -->
+  <section id="details" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 khamen-teal-pattern">
+    <div class="max-w-6xl mx-auto">
+      <div class="teal-panel rounded-2xl p-6 sm:p-10 shadow-tealCraft grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Venue Details (5 cols) -->
+        <div class="lg:col-span-5">
+          <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold-soft font-semibold mb-2">Location &amp; Directions</p>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Gathering Venue</h2>
+          
+          <div class="space-y-4 font-serif text-lg text-bamboo-light/95 mb-6">
+            <p>
+              <strong class="text-festiveGold-light font-bold block">NEIGRIHMS Indoor Stadium</strong>
+              Mawdiangdiang, Shillong, Meghalaya 793018
+            </p>
+            <p>
+              <strong class="text-festiveGold-light font-bold block">Date &amp; Day</strong>
+              Sunday, 6 December 2026
+            </p>
+            <p class="text-base text-bamboo-DEFAULT italic">
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
+            </p>
+          </div>
+
+          <a 
+            href="https://www.google.com/maps/place/Indoor+Stadium/@25.5936402,91.9473429,147m/data=!3m1!1e3!4m12!1m5!3m4!2zMjXCsDM1JzMwLjgiTiA5McKwNTYnMTIuMSJF!8m2!3d25.5919!4d91.9367!3m5!1s0x375079070bffb8ef:0x9a36721d917e35a8!8m2!3d25.5940552!4d91.9474983!16s%2Fg%2F1hhwbh_h0" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-festiveGold hover:bg-festiveGold-light text-emeraldTeal-deep font-sans text-xs font-bold uppercase tracking-widest px-6 py-3.5 rounded-full shadow-md transition">
+            Open Stadium in Google Maps ↗
+          </a>
+        </div>
+
+        <!-- Theme-Matched Emerald Teal & Gold Google Map (7 cols) -->
+        <div class="lg:col-span-7 themed-map-wrapper rounded-xl overflow-hidden border-2 border-festiveGold/60 shadow-tealCraft">
+          <iframe 
+            title="NEIGRIHMS Indoor Stadium Shillong Map"
+            src="https://maps.google.com/maps?q=25.5940552,91.9474983+(NEIGRIHMS%20Indoor%20Stadium)&t=m&z=17&ie=UTF8&iwloc=&output=embed"
+            class="themed-map-iframe w-full h-80 sm:h-96 border-0 block"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="themed-map-overlay"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-emeraldTeal-deep text-bamboo-light pt-12 pb-8 px-4 text-center border-t border-festiveGold/25">
+    <div class="max-w-3xl mx-auto">
+      <p class="font-display text-xl sm:text-2xl text-festiveGold-light tracking-wider mb-2">
+        Happy Ningol Chakouba 2026
+      </p>
+      <p class="font-serif italic text-lg text-bamboo-DEFAULT mb-6">
+        Celebrating the sacred bond of love, respect, and togetherness.
+      </p>
+      <div class="h-[1px] w-32 bg-festiveGold/40 mx-auto mb-6"></div>
+      <p class="font-sans text-xs text-bamboo-DEFAULT/70 tracking-wider uppercase">
+        6 December 2026 • NEIGRIHMS Indoor Stadium, Shillong
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bottom Woven Ribbon Border -->
+  <div class="phanek-stripe w-full"></div>
+
+  <!-- Full-Screen Lightbox Modal for Inspecting Card Details -->
+  <div id="card-lightbox" class="fixed inset-0 z-50 hidden bg-emeraldTeal-deep/95 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full max-h-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <div class="w-full max-w-xl flex items-center justify-between mb-3">
+        <button type="button" onclick="downloadCardImage()" class="bg-festiveGold text-emeraldTeal-deep hover:bg-festiveGold-light px-4 py-2 rounded-full font-sans text-xs uppercase tracking-widest font-bold shadow-lg cursor-pointer">
+          Download Image ↓
+        </button>
+        <button type="button" onclick="closeLightbox()" class="bg-bamboo-light text-emeraldTeal-deep hover:bg-festiveGold-light px-4 py-2 rounded-full font-sans text-xs uppercase tracking-widest font-bold shadow-lg cursor-pointer">
+          Close ✕
+        </button>
+      </div>
+      <img id="lightbox-img" src="sample-2-card.jpg" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-festiveGold shadow-2xl" />
+    </div>
+  </div>
+
+  <!-- Interactive Scripts: Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
+  <script>
+    // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
+    const eventDate = new Date("December 6, 2026 10:00:00 GMT+0530").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = 
+          '<div class="col-span-4 bg-festiveGold text-emeraldTeal-deep py-3 px-4 rounded-xl font-display font-bold text-base">The Celebration is Today!</div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 2. Standard vCalendar Payload for QR Code & .ics File
+    const vCalendarPayload = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Ningol Chakouba 2026//Shillong//EN",
+      "BEGIN:VEVENT",
+      "DTSTART:20261206T043000Z",
+      "DTEND:20261206T113000Z",
+      "SUMMARY:Grand Celebration of Ningol Chakouba 2026",
+      "DESCRIPTION:Celebrating the enduring relationship between brothers and sisters, the joy of togetherness and the timeless values of family, tradition and belonging.",
+      "LOCATION:NEIGRIHMS Indoor Stadium, Shillong, Meghalaya",
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\r\n");
+
+    // 3. Render Larger Calendar QR Code (176x176px) with High Error Correction for Center Dragon Emblem
+    window.addEventListener("DOMContentLoaded", function() {
+      const qrContainer = document.getElementById("calendar-qr");
+      if (qrContainer && typeof QRCode !== "undefined") {
+        new QRCode(qrContainer, {
+          text: vCalendarPayload,
+          width: 176,
+          height: 176,
+          colorDark: "#123B38",
+          colorLight: "#F6EFE2",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      }
+    });
+
+    // 4. Download .ics Calendar File
+    function downloadICS() {
+      const blob = new Blob([vCalendarPayload], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Ningol-Chakouba-2026.ics";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 5. Force Reliable Card Image Download Across Desktop & Mobile Browsers
+    async function downloadCardImage() {
+      const imgEl = document.getElementById("main-card-img");
+      const imgSrc = imgEl ? imgEl.src : "sample-2-card.jpg";
+      const fileName = "Ningol-Chakouba-2026-Sample-2.jpg";
+
+      try {
+        const response = await fetch(imgSrc);
+        if (!response.ok) throw new Error("Network response was not ok");
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      } catch (err) {
+        const link = document.createElement("a");
+        link.href = "sample-2-card.jpg";
+        link.download = fileName;
+        link.target = "_blank";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    // 6. Full-Screen Lightbox Controls
+    function openLightbox() {
+      const lightbox = document.getElementById("card-lightbox");
+      const mainImg = document.getElementById("main-card-img");
+      const lightboxImg = document.getElementById("lightbox-img");
+      if (mainImg && mainImg.src) {
+        lightboxImg.src = mainImg.src;
+      }
+      lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("card-lightbox");
+      lightbox.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+</html>
