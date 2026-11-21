@@ -200,16 +200,16 @@
           </a>
         </div>
 
-        <!-- Music Start/Stop Toggle Button -->
+        <!-- Music On/Off Toggle Button -->
         <button 
           type="button" 
           id="music-toggle-btn" 
           onclick="toggleMusic()"
-          aria-pressed="false"
-          title="Start or Stop Bach Cello Suite No. 1 Audio"
+          aria-pressed="true"
+          title="Toggle Music On or Off"
           class="inline-flex items-center gap-1.5 bg-emeraldTeal-mid hover:bg-emeraldTeal-light text-festiveGold-light border border-festiveGold/50 px-3.5 py-1.5 rounded-full font-sans text-xs font-semibold transition cursor-pointer">
-          <span id="music-icon" aria-hidden="true">▶</span>
-          <span id="music-label">Click to Play Cello</span>
+          <span id="music-icon" aria-hidden="true">♪</span>
+          <span id="music-label">Music: On</span>
         </button>
       </div>
     </nav>
@@ -534,7 +534,7 @@
 
   <!-- Interactive Scripts: YouTube Audio Playback, Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
   <script>
-    // 0. YouTube Audio-Only Auto-Play & Start/Stop Toggle (f60iTfdQrR0)
+    // 0. YouTube Audio-Only Auto-Play & On/Off Toggle (f60iTfdQrR0)
     const YT_VIDEO_ID = "f60iTfdQrR0";
     const musicBtn = document.getElementById("music-toggle-btn");
     const musicLabel = document.getElementById("music-label");
@@ -543,34 +543,18 @@
     let isPlayerReady = false;
     let userStoppedMusic = false;
 
-    function syncMusicUI(isPlaying, needsGesture = false) {
+    function syncMusicUI(isPlaying) {
       if (!musicBtn || !musicLabel || !musicIcon) return;
       if (isPlaying) {
         musicBtn.setAttribute("aria-pressed", "true");
         musicIcon.textContent = "♪";
         musicLabel.textContent = "Music: On";
         musicBtn.classList.remove("opacity-75");
-      } else if (needsGesture && !userStoppedMusic) {
-        musicBtn.setAttribute("aria-pressed", "false");
-        musicIcon.textContent = "▶";
-        musicLabel.textContent = "Click to Play Cello";
-        musicBtn.classList.remove("opacity-75");
       } else {
         musicBtn.setAttribute("aria-pressed", "false");
         musicIcon.textContent = "✕";
         musicLabel.textContent = "Music: Off";
         musicBtn.classList.add("opacity-75");
-      }
-    }
-
-    function startYtAudio() {
-      if (!isPlayerReady || !ytPlayer || userStoppedMusic) return;
-      try {
-        ytPlayer.unMute();
-        ytPlayer.setVolume(65);
-        ytPlayer.playVideo();
-      } catch (err) {
-        syncMusicUI(false, true);
       }
     }
 
@@ -594,23 +578,18 @@
             event.target.setVolume(65);
             if (!userStoppedMusic) {
               event.target.playVideo();
-              setTimeout(function() {
-                if (!userStoppedMusic && ytPlayer && ytPlayer.getPlayerState() !== YT.PlayerState.PLAYING) {
-                  syncMusicUI(false, true);
-                }
-              }, 800);
             }
           },
           onStateChange: function(event) {
             if (event.data === YT.PlayerState.PLAYING) {
-              syncMusicUI(true, false);
+              syncMusicUI(true);
               cleanupGestureListeners();
             } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-              syncMusicUI(false, false);
+              syncMusicUI(false);
             }
           },
           onError: function() {
-            syncMusicUI(false, false);
+            syncMusicUI(false);
           }
         }
       });
@@ -622,13 +601,13 @@
       if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
         userStoppedMusic = true;
         ytPlayer.pauseVideo();
-        syncMusicUI(false, false);
+        syncMusicUI(false);
       } else {
         userStoppedMusic = false;
         ytPlayer.unMute();
         ytPlayer.setVolume(65);
         ytPlayer.playVideo();
-        syncMusicUI(true, false);
+        syncMusicUI(true);
         cleanupGestureListeners();
       }
     }
