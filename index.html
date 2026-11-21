@@ -119,6 +119,29 @@
       display: block;
       margin: 0 auto;
     }
+
+    /* Custom Papercraft, Warm Cream & Maroon Map Styling */
+    .themed-map-wrapper {
+      position: relative;
+      background-color: #F3EDE2;
+    }
+
+    .themed-map-iframe {
+      filter: sepia(48%) saturate(85%) hue-rotate(-14deg) brightness(98%) contrast(95%);
+      transition: filter 0.3s ease;
+    }
+
+    .themed-map-wrapper:hover .themed-map-iframe {
+      filter: sepia(32%) saturate(92%) hue-rotate(-10deg) brightness(99%) contrast(97%);
+    }
+
+    .themed-map-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 28px rgba(90, 30, 40, 0.16);
+      border-radius: 0.75rem;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-maroon selection:text-paper-light">
@@ -242,7 +265,7 @@
               <span>↓</span>
             </a>
             <a href="#details" class="hover:text-maroon font-semibold transition flex items-center gap-1">
-              <span>Satellite Map</span>
+              <span>Venue Map</span>
               <span>↓</span>
             </a>
           </div>
@@ -340,14 +363,14 @@
     </div>
   </section>
 
-  <!-- VENUE & SATELLITE MAP SECTION -->
+  <!-- VENUE & THEME-MATCHED MAP SECTION -->
   <section id="details" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 khamen-pattern">
     <div class="max-w-6xl mx-auto">
       <div class="paper-layer rounded-2xl p-6 sm:p-10 shadow-papercraft grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
-          <p class="font-sans text-xs uppercase tracking-[0.2em] text-gold-dark font-semibold mb-2">Satellite View &amp; Directions</p>
+          <p class="font-sans text-xs uppercase tracking-[0.2em] text-gold-dark font-semibold mb-2">Location &amp; Directions</p>
           <h2 class="font-display text-2xl sm:text-3xl font-bold text-maroon mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-maroon-deep mb-6">
@@ -360,7 +383,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-maroon-soft italic">
-              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -373,15 +396,16 @@
           </a>
         </div>
 
-        <!-- Zoomed-In Satellite Google Map (7 cols) -->
-        <div class="lg:col-span-7 rounded-xl overflow-hidden border-2 border-gold/50 shadow-inner bg-paper-dark">
+        <!-- Theme-Matched Warm Papercraft Google Map (7 cols) -->
+        <div class="lg:col-span-7 themed-map-wrapper rounded-xl overflow-hidden border-2 border-gold/60 shadow-papercraft">
           <iframe 
-            title="NEIGRIHMS Indoor Stadium Shillong Satellite Map"
-            src="https://maps.google.com/maps?q=25.5940552,91.9474983+(NEIGRIHMS%20Indoor%20Stadium)&t=k&z=19&ie=UTF8&iwloc=&output=embed"
-            class="w-full h-80 sm:h-96 border-0"
+            title="NEIGRIHMS Indoor Stadium Shillong Map"
+            src="https://maps.google.com/maps?q=25.5940552,91.9474983+(NEIGRIHMS%20Indoor%20Stadium)&t=m&z=17&ie=UTF8&iwloc=&output=embed"
+            class="themed-map-iframe w-full h-80 sm:h-96 border-0 block"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
+          <div class="themed-map-overlay"></div>
         </div>
 
       </div>
