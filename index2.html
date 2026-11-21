@@ -442,7 +442,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold-soft font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-bamboo-light/95 mb-6">
             <p>
@@ -454,7 +454,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-bamboo-DEFAULT italic">
-              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -519,19 +519,24 @@
 
   <!-- Interactive Scripts: Background Music, Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
   <script>
-    // 0. Background Cello Audio Auto-Start & Toggle
+    // 0. Background Cello Audio Auto-Start, NotAllowedError Catch & Toggle
     const bgMusic = document.getElementById("bg-music");
     const musicBtn = document.getElementById("music-toggle-btn");
     const musicLabel = document.getElementById("music-label");
     const musicIcon = document.getElementById("music-icon");
-    let userMutedMusic = false;
+    let userPausedMusic = false;
 
-    function syncMusicUI(isPlaying) {
+    function syncMusicUI(isPlaying, blockedByBrowser = false) {
       if (!musicBtn || !musicLabel || !musicIcon) return;
       if (isPlaying) {
         musicBtn.setAttribute("aria-pressed", "true");
         musicIcon.textContent = "♪";
         musicLabel.textContent = "Music: On";
+        musicBtn.classList.remove("opacity-75");
+      } else if (blockedByBrowser && !userPausedMusic) {
+        musicBtn.setAttribute("aria-pressed", "false");
+        musicIcon.textContent = "▶";
+        musicLabel.textContent = "Click to Play Cello";
         musicBtn.classList.remove("opacity-75");
       } else {
         musicBtn.setAttribute("aria-pressed", "false");
@@ -542,41 +547,49 @@
     }
 
     async function attemptAutoPlay() {
-      if (!bgMusic || userMutedMusic) return;
+      if (!bgMusic || userPausedMusic) return;
       bgMusic.volume = 0.65;
       try {
         await bgMusic.play();
-        syncMusicUI(true);
+        syncMusicUI(true, false);
       } catch (err) {
-        // Browser autoplay policy blocked unmuted start until first user interaction
-        syncMusicUI(false);
+        if (err && err.name === "NotAllowedError") {
+          syncMusicUI(false, true);
+        } else {
+          syncMusicUI(false, false);
+        }
       }
     }
 
     function toggleMusic() {
       if (!bgMusic) return;
       if (bgMusic.paused) {
-        userMutedMusic = false;
+        userPausedMusic = false;
         bgMusic.volume = 0.65;
-        bgMusic.play().then(() => syncMusicUI(true)).catch(() => syncMusicUI(false));
+        bgMusic.play()
+          .then(() => {
+            syncMusicUI(true, false);
+            cleanupGestureListeners();
+          })
+          .catch(() => syncMusicUI(false, false));
       } else {
-        userMutedMusic = true;
+        userPausedMusic = true;
         bgMusic.pause();
-        syncMusicUI(false);
+        syncMusicUI(false, false);
       }
     }
 
-    window.addEventListener("DOMContentLoaded", function() {
-      attemptAutoPlay();
-    });
+    window.addEventListener("DOMContentLoaded", attemptAutoPlay);
 
     function unlockAudioOnFirstGesture() {
-      if (!userMutedMusic && bgMusic && bgMusic.paused) {
+      if (!userPausedMusic && bgMusic && bgMusic.paused) {
         bgMusic.volume = 0.65;
-        bgMusic.play().then(() => {
-          syncMusicUI(true);
-          cleanupGestureListeners();
-        }).catch(() => {});
+        bgMusic.play()
+          .then(() => {
+            syncMusicUI(true, false);
+            cleanupGestureListeners();
+          })
+          .catch(() => {});
       }
     }
 
