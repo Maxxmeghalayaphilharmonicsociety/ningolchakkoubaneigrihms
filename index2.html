@@ -64,7 +64,7 @@
   </script>
 
   <style>
-    /* Rich Deep Emerald Teal Backdrop Inspired by Sample 2 Card */
+    /* Rich Deep Emerald Teal Backdrop Inspired by Sample B Card */
     body {
       background-color: #123B38;
       background-image: 
@@ -157,17 +157,33 @@
   <!-- Top Woven Ribbon Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
 
-  <!-- Top Navigation Bar -->
+  <!-- Top Navigation Bar with Sample A and Sample B Switcher -->
   <header class="sticky top-2 z-40 px-4 pt-3">
-    <nav class="max-w-7xl mx-auto bg-emeraldTeal-deep/90 backdrop-blur-md border border-festiveGold/40 rounded-full px-6 py-3 shadow-tealCraft flex items-center justify-between">
-      <a href="#" class="font-display font-bold text-festiveGold-light text-sm sm:text-base tracking-wider flex items-center gap-2.5">
+    <nav class="max-w-7xl mx-auto bg-emeraldTeal-deep/90 backdrop-blur-md border border-festiveGold/40 rounded-full px-4 sm:px-6 py-2.5 shadow-tealCraft flex flex-wrap items-center justify-between gap-3">
+      <a href="index2.html" class="font-display font-bold text-festiveGold-light text-sm sm:text-base tracking-wider flex items-center gap-2.5">
         <span class="w-2.5 h-2.5 rounded-full bg-marigold inline-block shadow-sm"></span>
         NINGOL CHAKOUBA 2026
       </a>
-      <div class="flex items-center gap-5 sm:gap-8 font-serif text-base sm:text-lg font-semibold text-bamboo-light">
-        <a href="#invitation" class="hover:text-festiveGold-light transition">Invitation Card</a>
-        <a href="#heritage" class="hover:text-festiveGold-light transition">Heritage</a>
-        <a href="#details" class="hover:text-festiveGold-light transition">Venue</a>
+
+      <div class="flex items-center gap-4 sm:gap-7 font-serif text-base sm:text-lg font-semibold text-bamboo-light">
+        <a href="#invitation" class="hidden md:inline hover:text-festiveGold-light transition">Invitation Card</a>
+        <a href="#heritage" class="hidden md:inline hover:text-festiveGold-light transition">Heritage</a>
+        <a href="#details" class="hidden md:inline hover:text-festiveGold-light transition">Venue</a>
+
+        <!-- Sample A & Sample B Buttons -->
+        <div class="flex items-center gap-1.5 bg-emeraldTeal-deep border border-festiveGold/40 rounded-full p-1 font-sans text-xs font-semibold">
+          <a 
+            href="index.html" 
+            class="px-3.5 py-1.5 rounded-full text-bamboo-light hover:bg-emeraldTeal-mid transition">
+            Sample A
+          </a>
+          <a 
+            href="index2.html" 
+            aria-current="page"
+            class="px-3.5 py-1.5 rounded-full bg-festiveGold text-emeraldTeal-deep font-bold shadow-sm transition">
+            Sample B
+          </a>
+        </div>
       </div>
     </nav>
   </header>
@@ -252,29 +268,29 @@
                 <!-- Embedded Pakhangba Dragon Medallion Overlay -->
                 <svg class="w-12 h-12 rounded-full shadow-md pointer-events-none absolute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Pakhangba Dragon Emblem">
                   <defs>
-                    <linearGradient id="qrTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="qrTealGradB" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stop-color="#1D5753" />
                       <stop offset="100%" stop-color="#0D2C2A" />
                     </linearGradient>
-                    <linearGradient id="qrGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="qrGoldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stop-color="#F3DC9E" />
                       <stop offset="50%" stop-color="#D6A84F" />
                       <stop offset="100%" stop-color="#9E7324" />
                     </linearGradient>
                   </defs>
-                  <circle cx="60" cy="60" r="58" fill="#F6EFE2" stroke="url(#qrGoldGrad)" stroke-width="3" />
-                  <circle cx="60" cy="60" r="51" fill="url(#qrTealGrad)" stroke="url(#qrGoldGrad)" stroke-width="1.5" />
+                  <circle cx="60" cy="60" r="58" fill="#F6EFE2" stroke="url(#qrGoldGradB)" stroke-width="3" />
+                  <circle cx="60" cy="60" r="51" fill="url(#qrTealGradB)" stroke="url(#qrGoldGradB)" stroke-width="1.5" />
                   <circle cx="60" cy="60" r="45.5" fill="none" stroke="#F3DC9E" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.85" />
-                  <circle cx="60" cy="60" r="40" fill="#F6EFE2" stroke="url(#qrGoldGrad)" stroke-width="1.5" />
+                  <circle cx="60" cy="60" r="40" fill="#F6EFE2" stroke="url(#qrGoldGradB)" stroke-width="1.5" />
                   <!-- Coiled Pakhangba Dragon -->
                   <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#14423F" stroke-width="10.5" stroke-linecap="round" />
-                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="url(#qrGoldGrad)" stroke-width="7.5" stroke-linecap="round" />
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="url(#qrGoldGradB)" stroke-width="7.5" stroke-linecap="round" />
                   <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#F6EFE2" stroke-width="1.4" stroke-dasharray="2.5 3.5" stroke-linecap="round" opacity="0.9" />
-                  <path d="M 42 84 L 33 88 L 37 80 Z" fill="#9E2342" stroke="url(#qrGoldGrad)" stroke-width="0.8" />
-                  <path d="M 63 24 L 71 16 L 67 25 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="0.7" />
-                  <path d="M 67 26 L 77 20 L 70 28 Z" fill="#E87A1E" stroke="url(#qrGoldGrad)" stroke-width="0.7" />
-                  <path d="M 69 29 L 79 26 L 71 31 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="0.7" />
-                  <path d="M 62 23 C 54 22, 47 25, 44 29 L 49 31 L 45 34 C 50 36, 57 35, 63 32 Z" fill="url(#qrGoldGrad)" stroke="#14423F" stroke-width="1" stroke-linejoin="round" />
+                  <path d="M 42 84 L 33 88 L 37 80 Z" fill="#9E2342" stroke="url(#qrGoldGradB)" stroke-width="0.8" />
+                  <path d="M 63 24 L 71 16 L 67 25 Z" fill="url(#qrGoldGradB)" stroke="#14423F" stroke-width="0.7" />
+                  <path d="M 67 26 L 77 20 L 70 28 Z" fill="#E87A1E" stroke="url(#qrGoldGradB)" stroke-width="0.7" />
+                  <path d="M 69 29 L 79 26 L 71 31 Z" fill="url(#qrGoldGradB)" stroke="#14423F" stroke-width="0.7" />
+                  <path d="M 62 23 C 54 22, 47 25, 44 29 L 49 31 L 45 34 C 50 36, 57 35, 63 32 Z" fill="url(#qrGoldGradB)" stroke="#14423F" stroke-width="1" stroke-linejoin="round" />
                   <path d="M 46 31 Q 39 29 37 33" fill="none" stroke="#9E7324" stroke-width="1" stroke-linecap="round" />
                   <circle cx="55" cy="27.5" r="1.5" fill="#0D2C2A" />
                   <circle cx="54.6" cy="27.1" r="0.5" fill="#F6EFE2" />
@@ -411,7 +427,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold-soft font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-bamboo-light/95 mb-6">
             <p>
@@ -423,7 +439,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-bamboo-DEFAULT italic">
-              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -560,7 +576,7 @@
     async function downloadCardImage() {
       const imgEl = document.getElementById("main-card-img");
       const imgSrc = imgEl ? imgEl.src : "sample-2-card.jpg";
-      const fileName = "Ningol-Chakouba-2026-Sample-2.jpg";
+      const fileName = "Ningol-Chakouba-2026-Sample-B.jpg";
 
       try {
         const response = await fetch(imgSrc);
