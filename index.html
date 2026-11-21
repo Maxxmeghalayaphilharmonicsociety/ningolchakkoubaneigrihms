@@ -149,22 +149,38 @@
   <!-- Top Traditional Phanek Woven Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
 
-  <!-- Minimalist Top Navigation Bar -->
+  <!-- Top Navigation Bar with Sample A and Sample B Switcher -->
   <header class="sticky top-2 z-40 px-4 pt-3">
-    <nav class="max-w-7xl mx-auto bg-paper-light/90 backdrop-blur-md border border-gold/30 rounded-full px-6 py-3 shadow-papercraft flex items-center justify-between">
-      <a href="#" class="font-display font-bold text-maroon text-sm sm:text-base tracking-wider flex items-center gap-2">
+    <nav class="max-w-7xl mx-auto bg-paper-light/90 backdrop-blur-md border border-gold/30 rounded-full px-4 sm:px-6 py-2.5 shadow-papercraft flex flex-wrap items-center justify-between gap-3">
+      <a href="index.html" class="font-display font-bold text-maroon text-sm sm:text-base tracking-wider flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-gold inline-block"></span>
         NINGOL CHAKOUBA 2026
       </a>
-      <div class="flex items-center gap-5 sm:gap-8 font-serif text-base sm:text-lg font-semibold text-maroon-deep">
-        <a href="#invitation" class="hover:text-gold-dark transition">Invitation Card</a>
-        <a href="#heritage" class="hover:text-gold-dark transition">Heritage</a>
-        <a href="#details" class="hover:text-gold-dark transition">Venue</a>
+
+      <div class="flex items-center gap-4 sm:gap-7 font-serif text-base sm:text-lg font-semibold text-maroon-deep">
+        <a href="#invitation" class="hidden md:inline hover:text-gold-dark transition">Invitation Card</a>
+        <a href="#heritage" class="hidden md:inline hover:text-gold-dark transition">Heritage</a>
+        <a href="#details" class="hidden md:inline hover:text-gold-dark transition">Venue</a>
+
+        <!-- Sample A & Sample B Buttons -->
+        <div class="flex items-center gap-1.5 bg-paper-base border border-gold/40 rounded-full p-1 font-sans text-xs font-semibold">
+          <a 
+            href="index.html" 
+            aria-current="page"
+            class="px-3.5 py-1.5 rounded-full bg-maroon text-paper-light shadow-sm transition">
+            Sample A
+          </a>
+          <a 
+            href="index2.html" 
+            class="px-3.5 py-1.5 rounded-full text-maroon hover:bg-paper-dark/70 transition">
+            Sample B
+          </a>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- MAIN SHOWCASE: Left Side Panel (Details & Large QR) + Right Large Card Stage -->
+  <!-- MAIN SHOWCASE: Left Side Panel (Details & Large QR with Pakhangba Dragon) + Right Large Card Stage -->
   <section id="invitation" class="relative pt-6 pb-16 md:py-12 px-4 sm:px-6 lg:px-8 khamen-pattern">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
       
@@ -231,7 +247,7 @@
             </div>
           </div>
 
-          <!-- Large Save the Date QR Code Block at Bottom of Panel -->
+          <!-- Large Save the Date QR Code Block with Centered Pakhangba Dragon Emblem -->
           <div class="bg-paper-base/90 rounded-2xl p-5 border border-gold/40 text-center">
             <p class="font-display text-base font-bold text-maroon mb-1">Save the Date</p>
             <p class="font-serif text-base text-maroon-soft leading-snug mb-4">
@@ -239,7 +255,40 @@
             </p>
             
             <div class="bg-white p-4 rounded-xl border-2 border-gold/50 shadow-emboss inline-block mx-auto mb-3">
-              <div id="calendar-qr" class="w-44 h-44 flex items-center justify-center"></div>
+              <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                <div id="calendar-qr" class="w-44 h-44 flex items-center justify-center"></div>
+                
+                <!-- Embedded Pakhangba Dragon Medallion Overlay -->
+                <svg class="w-12 h-12 rounded-full shadow-md pointer-events-none absolute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Pakhangba Dragon Emblem">
+                  <defs>
+                    <linearGradient id="qrGoldFoilA" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#DFC48C" />
+                      <stop offset="50%" stop-color="#B68D40" />
+                      <stop offset="100%" stop-color="#8C6823" />
+                    </linearGradient>
+                    <linearGradient id="qrMaroonGradA" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#7A2E3B" />
+                      <stop offset="100%" stop-color="#3D1119" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="60" cy="60" r="58" fill="#FAF7F2" stroke="url(#qrGoldFoilA)" stroke-width="3" />
+                  <circle cx="60" cy="60" r="51" fill="url(#qrMaroonGradA)" stroke="url(#qrGoldFoilA)" stroke-width="1.5" />
+                  <circle cx="60" cy="60" r="45.5" fill="none" stroke="#DFC48C" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.85" />
+                  <circle cx="60" cy="60" r="40" fill="#FAF7F2" stroke="url(#qrGoldFoilA)" stroke-width="1.5" />
+                  <!-- Coiled Pakhangba Dragon -->
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#5A1E28" stroke-width="10.5" stroke-linecap="round" />
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="url(#qrGoldFoilA)" stroke-width="7.5" stroke-linecap="round" />
+                  <path d="M 42 84 C 27 77, 27 57, 45 55 C 63 53, 78 65, 73 79 C 69 90, 50 91, 45 80 C 40 69, 53 56, 65 46 C 74 39, 73 28, 61 27" fill="none" stroke="#FAF7F2" stroke-width="1.4" stroke-dasharray="2.5 3.5" stroke-linecap="round" opacity="0.9" />
+                  <path d="M 42 84 L 33 88 L 37 80 Z" fill="#5A1E28" stroke="url(#qrGoldFoilA)" stroke-width="0.8" />
+                  <path d="M 63 24 L 71 16 L 67 25 Z" fill="url(#qrGoldFoilA)" stroke="#5A1E28" stroke-width="0.7" />
+                  <path d="M 67 26 L 77 20 L 70 28 Z" fill="#7A2E3B" stroke="url(#qrGoldFoilA)" stroke-width="0.7" />
+                  <path d="M 69 29 L 79 26 L 71 31 Z" fill="url(#qrGoldFoilA)" stroke="#5A1E28" stroke-width="0.7" />
+                  <path d="M 62 23 C 54 22, 47 25, 44 29 L 49 31 L 45 34 C 50 36, 57 35, 63 32 Z" fill="url(#qrGoldFoilA)" stroke="#5A1E28" stroke-width="1" stroke-linejoin="round" />
+                  <path d="M 46 31 Q 39 29 37 33" fill="none" stroke="#8C6823" stroke-width="1" stroke-linecap="round" />
+                  <circle cx="55" cy="27.5" r="1.5" fill="#3D1119" />
+                  <circle cx="54.6" cy="27.1" r="0.5" fill="#FAF7F2" />
+                </svg>
+              </div>
               <span class="block font-sans text-[10px] uppercase tracking-widest text-maroon font-semibold mt-2">Scan for Calendar Event</span>
             </div>
 
@@ -371,7 +420,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-gold-dark font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-maroon mb-4">Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-maroon mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-maroon-deep mb-6">
             <p>
@@ -383,7 +432,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-maroon-soft italic">
-              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -490,7 +539,7 @@
       "END:VCALENDAR"
     ].join("\r\n");
 
-    // 3. Render Larger Calendar QR Code (176x176px) on Page Load
+    // 3. Render Larger Calendar QR Code (176x176px) with High Error Correction for Center Dragon Emblem
     window.addEventListener("DOMContentLoaded", function() {
       const qrContainer = document.getElementById("calendar-qr");
       if (qrContainer && typeof QRCode !== "undefined") {
@@ -500,7 +549,7 @@
           height: 176,
           colorDark: "#5A1E28",
           colorLight: "#FFFFFF",
-          correctLevel: QRCode.CorrectLevel.M
+          correctLevel: QRCode.CorrectLevel.H
         });
       }
     });
@@ -535,7 +584,6 @@
         document.body.removeChild(link);
         setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
       } catch (err) {
-        // Fallback if opened directly from local file:// protocol
         const link = document.createElement("a");
         link.href = "card-hero.png";
         link.download = fileName;
