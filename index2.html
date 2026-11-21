@@ -150,12 +150,24 @@
       box-shadow: inset 0 0 32px rgba(10, 36, 34, 0.45);
       border-radius: 0.75rem;
     }
+
+    /* Audio-Only Hidden YouTube Player Container */
+    .yt-audio-only {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      left: -9999px;
+      top: -9999px;
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-festiveGold selection:text-emeraldTeal-deep">
 
-  <!-- Background Cello Audio Element -->
-  <audio id="bg-music" src="bach-cello-suite-no1-bwv1007190601b.mp3" autoplay loop preload="auto"></audio>
+  <!-- Hidden YouTube Player Container (Audio Only) -->
+  <div id="yt-music-player" class="yt-audio-only" aria-hidden="true"></div>
 
   <!-- Top Woven Ribbon Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
@@ -188,16 +200,16 @@
           </a>
         </div>
 
-        <!-- Music On/Off Toggle Button -->
+        <!-- Music Start/Stop Toggle Button -->
         <button 
           type="button" 
           id="music-toggle-btn" 
           onclick="toggleMusic()"
-          aria-pressed="true"
-          title="Toggle Bach Cello Suite No. 1 Background Music"
+          aria-pressed="false"
+          title="Start or Stop Bach Cello Suite No. 1 Audio"
           class="inline-flex items-center gap-1.5 bg-emeraldTeal-mid hover:bg-emeraldTeal-light text-festiveGold-light border border-festiveGold/50 px-3.5 py-1.5 rounded-full font-sans text-xs font-semibold transition cursor-pointer">
-          <span id="music-icon" aria-hidden="true">♪</span>
-          <span id="music-label">Music: On</span>
+          <span id="music-icon" aria-hidden="true">▶</span>
+          <span id="music-label">Click to Play Cello</span>
         </button>
       </div>
     </nav>
@@ -442,7 +454,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold-soft font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Gathering Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-bamboo-light/95 mb-6">
             <p>
@@ -454,7 +466,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-bamboo-DEFAULT italic">
-              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -517,23 +529,28 @@
     </div>
   </div>
 
-  <!-- Interactive Scripts: Background Music, Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
+  <!-- YouTube IFrame Player API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- Interactive Scripts: YouTube Audio Playback, Countdown, QR Code, Lightbox, Image Download & Calendar Export -->
   <script>
-    // 0. Background Cello Audio Auto-Start, NotAllowedError Catch & Toggle
-    const bgMusic = document.getElementById("bg-music");
+    // 0. YouTube Audio-Only Auto-Play & Start/Stop Toggle (f60iTfdQrR0)
+    const YT_VIDEO_ID = "f60iTfdQrR0";
     const musicBtn = document.getElementById("music-toggle-btn");
     const musicLabel = document.getElementById("music-label");
     const musicIcon = document.getElementById("music-icon");
-    let userPausedMusic = false;
+    let ytPlayer = null;
+    let isPlayerReady = false;
+    let userStoppedMusic = false;
 
-    function syncMusicUI(isPlaying, blockedByBrowser = false) {
+    function syncMusicUI(isPlaying, needsGesture = false) {
       if (!musicBtn || !musicLabel || !musicIcon) return;
       if (isPlaying) {
         musicBtn.setAttribute("aria-pressed", "true");
         musicIcon.textContent = "♪";
         musicLabel.textContent = "Music: On";
         musicBtn.classList.remove("opacity-75");
-      } else if (blockedByBrowser && !userPausedMusic) {
+      } else if (needsGesture && !userStoppedMusic) {
         musicBtn.setAttribute("aria-pressed", "false");
         musicIcon.textContent = "▶";
         musicLabel.textContent = "Click to Play Cello";
@@ -546,62 +563,96 @@
       }
     }
 
-    async function attemptAutoPlay() {
-      if (!bgMusic || userPausedMusic) return;
-      bgMusic.volume = 0.65;
+    function startYtAudio() {
+      if (!isPlayerReady || !ytPlayer || userStoppedMusic) return;
       try {
-        await bgMusic.play();
-        syncMusicUI(true, false);
+        ytPlayer.unMute();
+        ytPlayer.setVolume(65);
+        ytPlayer.playVideo();
       } catch (err) {
-        if (err && err.name === "NotAllowedError") {
-          syncMusicUI(false, true);
-        } else {
-          syncMusicUI(false, false);
+        syncMusicUI(false, true);
+      }
+    }
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player("yt-music-player", {
+        height: "1",
+        width: "1",
+        videoId: YT_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: YT_VIDEO_ID,
+          controls: 0,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1
+        },
+        events: {
+          onReady: function(event) {
+            isPlayerReady = true;
+            event.target.setVolume(65);
+            if (!userStoppedMusic) {
+              event.target.playVideo();
+              setTimeout(function() {
+                if (!userStoppedMusic && ytPlayer && ytPlayer.getPlayerState() !== YT.PlayerState.PLAYING) {
+                  syncMusicUI(false, true);
+                }
+              }, 800);
+            }
+          },
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              syncMusicUI(true, false);
+              cleanupGestureListeners();
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              syncMusicUI(false, false);
+            }
+          },
+          onError: function() {
+            syncMusicUI(false, false);
+          }
+        }
+      });
+    }
+
+    function toggleMusic() {
+      if (!isPlayerReady || !ytPlayer) return;
+      const state = ytPlayer.getPlayerState();
+      if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
+        userStoppedMusic = true;
+        ytPlayer.pauseVideo();
+        syncMusicUI(false, false);
+      } else {
+        userStoppedMusic = false;
+        ytPlayer.unMute();
+        ytPlayer.setVolume(65);
+        ytPlayer.playVideo();
+        syncMusicUI(true, false);
+        cleanupGestureListeners();
+      }
+    }
+
+    function unlockYtAudioOnFirstGesture() {
+      if (!userStoppedMusic && isPlayerReady && ytPlayer) {
+        const state = ytPlayer.getPlayerState();
+        if (state !== YT.PlayerState.PLAYING) {
+          ytPlayer.unMute();
+          ytPlayer.setVolume(65);
+          ytPlayer.playVideo();
         }
       }
     }
 
-    function toggleMusic() {
-      if (!bgMusic) return;
-      if (bgMusic.paused) {
-        userPausedMusic = false;
-        bgMusic.volume = 0.65;
-        bgMusic.play()
-          .then(() => {
-            syncMusicUI(true, false);
-            cleanupGestureListeners();
-          })
-          .catch(() => syncMusicUI(false, false));
-      } else {
-        userPausedMusic = true;
-        bgMusic.pause();
-        syncMusicUI(false, false);
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", attemptAutoPlay);
-
-    function unlockAudioOnFirstGesture() {
-      if (!userPausedMusic && bgMusic && bgMusic.paused) {
-        bgMusic.volume = 0.65;
-        bgMusic.play()
-          .then(() => {
-            syncMusicUI(true, false);
-            cleanupGestureListeners();
-          })
-          .catch(() => {});
-      }
-    }
-
     function cleanupGestureListeners() {
-      document.removeEventListener("click", unlockAudioOnFirstGesture);
-      document.removeEventListener("touchstart", unlockAudioOnFirstGesture);
-      document.removeEventListener("keydown", unlockAudioOnFirstGesture);
+      document.removeEventListener("click", unlockYtAudioOnFirstGesture);
+      document.removeEventListener("touchstart", unlockYtAudioOnFirstGesture);
+      document.removeEventListener("keydown", unlockYtAudioOnFirstGesture);
     }
 
-    document.addEventListener("click", unlockAudioOnFirstGesture);
-    document.addEventListener("touchstart", unlockAudioOnFirstGesture);
-    document.addEventListener("keydown", unlockAudioOnFirstGesture);
+    document.addEventListener("click", unlockYtAudioOnFirstGesture);
+    document.addEventListener("touchstart", unlockYtAudioOnFirstGesture);
+    document.addEventListener("keydown", unlockYtAudioOnFirstGesture);
 
     // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
     const eventDate = new Date("December 6, 2026 10:00:00 GMT+0530").getTime();
