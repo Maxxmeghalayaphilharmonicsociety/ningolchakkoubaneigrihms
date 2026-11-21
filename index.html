@@ -49,7 +49,7 @@
           },
           boxShadow: {
             'papercraft': '0 10px 30px -5px rgba(90, 30, 40, 0.12), 0 4px 10px -2px rgba(182, 141, 64, 0.08)',
-            'papercraft-lg': '0 20px 50px -12px rgba(61, 17, 25, 0.22)',
+            'papercraft-lg': '0 24px 60px -12px rgba(61, 17, 25, 0.28)',
             'emboss': 'inset 0 1px 1px rgba(255,255,255,0.8), 0 4px 12px rgba(90, 30, 40, 0.1)',
           }
         }
@@ -107,15 +107,6 @@
       pointer-events: none;
     }
 
-    /* Gentle floating animation for 3D feel */
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    .animate-float {
-      animation: floatSlow 6s ease-in-out infinite;
-    }
-
     /* Gold foil shimmer text */
     .gold-foil {
       background: linear-gradient(135deg, #8C6823 0%, #DFC48C 45%, #B68D40 70%, #7A5819 100%);
@@ -135,175 +126,175 @@
   <!-- Top Traditional Phanek Woven Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
 
-  <!-- Minimalist Floating Navigation -->
+  <!-- Minimalist Top Navigation Bar -->
   <header class="sticky top-2 z-40 px-4 pt-3">
-    <nav class="max-w-5xl mx-auto bg-paper-light/90 backdrop-blur-md border border-gold/30 rounded-full px-6 py-3 shadow-papercraft flex items-center justify-between">
+    <nav class="max-w-7xl mx-auto bg-paper-light/90 backdrop-blur-md border border-gold/30 rounded-full px-6 py-3 shadow-papercraft flex items-center justify-between">
       <a href="#" class="font-display font-bold text-maroon text-sm sm:text-base tracking-wider flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-gold inline-block"></span>
-        NINGOL CHAKOUBA
+        NINGOL CHAKOUBA 2026
       </a>
       <div class="flex items-center gap-5 sm:gap-8 font-serif text-base sm:text-lg font-semibold text-maroon-deep">
-        <a href="#invitation" class="hover:text-gold-dark transition">Invitation</a>
+        <a href="#invitation" class="hover:text-gold-dark transition">Invitation Card</a>
         <a href="#heritage" class="hover:text-gold-dark transition">Heritage</a>
         <a href="#details" class="hover:text-gold-dark transition">Venue</a>
       </div>
     </nav>
   </header>
 
-  <!-- HERO SECTION: Split Papercraft Showcase -->
-  <section id="invitation" class="relative overflow-hidden pt-8 pb-16 md:py-20 px-4 sm:px-6 lg:px-8 khamen-pattern">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+  <!-- MAIN SHOWCASE: Left Side Panel (Details & QR) + Right Large Card Stage -->
+  <section id="invitation" class="relative pt-6 pb-16 md:py-12 px-4 sm:px-6 lg:px-8 khamen-pattern">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
       
-      <!-- Left Column: The 3D Papercraft Card Image -->
-      <div class="lg:col-span-5 flex justify-center">
-        <div class="relative group max-w-md w-full animate-float">
-          <!-- Decorative backing layers to mimic stacked 3D paper sheets -->
-          <div class="absolute -inset-2 bg-gold/20 rounded-2xl rotate-2 transition-transform group-hover:rotate-3"></div>
-          <div class="absolute -inset-2 bg-maroon/10 rounded-2xl -rotate-2 transition-transform group-hover:-rotate-3"></div>
-          
-          <!-- Main Card Image Container -->
-          <div class="relative rounded-xl overflow-hidden shadow-papercraft-lg border-2 border-gold/50 bg-paper-base">
-            <img 
-              src="card-hero.png" 
-              alt="Ningol Chakouba 2026 3D Papercraft Invitation Card featuring Pakhangba, Khamen Chatpa, Phanek, and Lotus art"
-              class="w-full h-auto object-cover block"
-              onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
-            />
-            <!-- Fallback Display if card-hero.png is not yet placed in folder -->
-            <div id="fallback-art" style="display:none;" class="aspect-[2/3] p-8 flex-col items-center justify-center text-center bg-gradient-to-b from-paper-light to-paper-dark">
-              <div class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-4 text-maroon font-display text-2xl">❀</div>
-              <p class="font-display text-maroon font-bold text-lg mb-2">Ningol Chakouba 2026</p>
-              <p class="font-serif italic text-maroon-soft text-base">Place your invitation card image in the same folder named <code class="bg-white/70 px-1.5 py-0.5 rounded text-xs">card-hero.png</code> to display the full artwork here.</p>
-            </div>
-          </div>
-
-          <!-- Download / Save Card Button -->
-          <div class="mt-4 text-center">
-            <a href="card-hero.png" download="Ningol-Chakouba-2026-Invitation.png" class="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-maroon-soft hover:text-maroon font-semibold transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              Save Invitation Card
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Invitation Typography, Live Countdown & Calendar QR -->
-      <div class="lg:col-span-7 text-center lg:text-left">
-        <div class="paper-layer rounded-2xl p-8 sm:p-12 shadow-papercraft">
-          
-          <p class="font-sans text-xs uppercase tracking-[0.25em] text-gold-dark font-semibold mb-3">
-            Cordial Invitation • Shillong
+      <!-- LEFT SIDE MENU / PANEL (4 Columns on Desktop, Order 2 on Mobile so Card shows first) -->
+      <aside class="lg:col-span-4 order-2 lg:order-1 lg:sticky lg:top-20 space-y-6">
+        
+        <!-- Event Summary & Countdown Card -->
+        <div class="paper-layer rounded-2xl p-6 sm:p-7 shadow-papercraft">
+          <p class="font-sans text-[11px] uppercase tracking-[0.25em] text-gold-dark font-semibold mb-2">
+            Cordial Invitation
           </p>
-          
-          <h1 class="font-display text-3xl sm:text-5xl font-bold text-maroon leading-tight mb-2">
-            HAPPY <br class="hidden sm:inline" />
-            <span class="gold-foil">NINGOL CHAKOUBA!</span>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold text-maroon leading-tight mb-3">
+            HAPPY <span class="gold-foil block">NINGOL CHAKOUBA!</span>
           </h1>
 
-          <!-- Ornamental Divider -->
-          <div class="flex items-center justify-center lg:justify-start gap-3 my-6">
-            <span class="h-[1px] w-12 bg-gold"></span>
-            <span class="text-maroon text-lg">❖</span>
-            <span class="h-[1px] w-12 bg-gold"></span>
-          </div>
-
-          <p class="font-serif text-xl sm:text-2xl text-maroon-deep leading-relaxed mb-4">
-            You and your entire family members are cordially invited to the Grand Celebration of
-            <span class="block font-display font-bold text-gold-dark text-2xl sm:text-3xl mt-1 tracking-wide">
-              NINGOL CHAKOUBA
-            </span>
+          <p class="font-serif text-lg text-maroon-deep leading-relaxed mb-5">
+            Celebrating the enduring relationship between brothers and sisters, the joy of togetherness, and the timeless values of family, tradition, and belonging.
           </p>
 
-          <blockquote class="font-serif italic text-lg sm:text-xl text-maroon-soft bg-paper-base/70 border-l-4 border-gold p-4 rounded-r-lg my-6 text-left">
-            “Let us celebrate the enduring relationship between brothers and sisters, the joy of togetherness and the timeless values of family, tradition and belonging.”
-          </blockquote>
-
-          <!-- Key Date & Venue Pill Boxes -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 text-left">
-            <div class="bg-paper-light border border-gold/40 rounded-xl p-4 shadow-emboss flex items-center gap-4">
-              <div class="bg-maroon text-paper-light rounded-lg px-3.5 py-2 text-center shrink-0">
-                <span class="block font-sans text-[10px] uppercase tracking-wider text-gold-light">DEC</span>
-                <span class="block font-display text-2xl font-bold leading-none">06</span>
+          <!-- Compact Date & Venue List -->
+          <div class="space-y-3 my-5 border-y border-gold/25 py-4">
+            <div class="flex items-center gap-3.5">
+              <div class="bg-maroon text-paper-light rounded-lg px-3 py-1.5 text-center shrink-0">
+                <span class="block font-sans text-[9px] uppercase tracking-wider text-gold-light">DEC</span>
+                <span class="block font-display text-xl font-bold leading-none">06</span>
               </div>
               <div>
-                <p class="font-sans text-xs uppercase tracking-wider text-gold-dark font-semibold">Sunday, 2026</p>
-                <p class="font-serif text-lg font-bold text-maroon-deep">6 December 2026</p>
+                <p class="font-sans text-[10px] uppercase tracking-wider text-gold-dark font-semibold">Date &amp; Day</p>
+                <p class="font-serif text-lg font-bold text-maroon-deep leading-tight">Sunday, 6 December 2026</p>
               </div>
             </div>
 
-            <div class="bg-paper-light border border-gold/40 rounded-xl p-4 shadow-emboss flex items-center gap-4">
-              <div class="bg-maroon text-gold-light rounded-lg p-3 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div class="flex items-center gap-3.5">
+              <div class="bg-maroon text-gold-light rounded-lg p-2.5 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
-                <p class="font-sans text-xs uppercase tracking-wider text-gold-dark font-semibold">Venue</p>
+                <p class="font-sans text-[10px] uppercase tracking-wider text-gold-dark font-semibold">Venue</p>
                 <p class="font-serif text-lg font-bold text-maroon-deep leading-tight">NEIGRIHMS Indoor Stadium, Shillong</p>
               </div>
             </div>
           </div>
 
-          <!-- Live Countdown Timer -->
-          <div class="pt-2">
-            <p class="font-sans text-[11px] uppercase tracking-[0.2em] text-maroon-soft mb-3">Counting Down to the Grand Feast</p>
-            <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto lg:mx-0">
-              <div class="bg-maroon-deep text-paper-light rounded-xl py-3 px-2 text-center shadow-md border border-gold/40">
-                <span id="days" class="block font-display text-xl sm:text-2xl font-bold text-gold-light">--</span>
-                <span class="text-[10px] font-sans uppercase tracking-wider opacity-80">Days</span>
+          <!-- Live Countdown -->
+          <div class="mb-6">
+            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-maroon-soft mb-2.5 text-center">Countdown to the Celebration</p>
+            <div id="countdown" class="grid grid-cols-4 gap-2">
+              <div class="bg-maroon-deep text-paper-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-gold/40">
+                <span id="days" class="block font-display text-lg font-bold text-gold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Days</span>
               </div>
-              <div class="bg-maroon-deep text-paper-light rounded-xl py-3 px-2 text-center shadow-md border border-gold/40">
-                <span id="hours" class="block font-display text-xl sm:text-2xl font-bold text-gold-light">--</span>
-                <span class="text-[10px] font-sans uppercase tracking-wider opacity-80">Hours</span>
+              <div class="bg-maroon-deep text-paper-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-gold/40">
+                <span id="hours" class="block font-display text-lg font-bold text-gold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Hours</span>
               </div>
-              <div class="bg-maroon-deep text-paper-light rounded-xl py-3 px-2 text-center shadow-md border border-gold/40">
-                <span id="minutes" class="block font-display text-xl sm:text-2xl font-bold text-gold-light">--</span>
-                <span class="text-[10px] font-sans uppercase tracking-wider opacity-80">Mins</span>
+              <div class="bg-maroon-deep text-paper-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-gold/40">
+                <span id="minutes" class="block font-display text-lg font-bold text-gold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Mins</span>
               </div>
-              <div class="bg-maroon-deep text-paper-light rounded-xl py-3 px-2 text-center shadow-md border border-gold/40">
-                <span id="seconds" class="block font-display text-xl sm:text-2xl font-bold text-gold-light">--</span>
-                <span class="text-[10px] font-sans uppercase tracking-wider opacity-80">Secs</span>
+              <div class="bg-maroon-deep text-paper-light rounded-lg py-2.5 px-1 text-center shadow-sm border border-gold/40">
+                <span id="seconds" class="block font-display text-lg font-bold text-gold-light">--</span>
+                <span class="text-[9px] font-sans uppercase tracking-wider opacity-80">Secs</span>
               </div>
             </div>
           </div>
 
-          <!-- Save the Date QR Code & Calendar Buttons -->
-          <div class="mt-8 pt-6 border-t border-gold/30 flex flex-col sm:flex-row items-center gap-6 text-left">
-            <!-- QR Code Box -->
-            <div class="bg-white p-3 rounded-xl border border-gold/50 shadow-emboss shrink-0 text-center">
-              <div id="calendar-qr" class="w-28 h-28 flex items-center justify-center"></div>
-              <span class="block font-sans text-[9px] uppercase tracking-widest text-maroon font-semibold mt-1.5">Scan for Date</span>
+          <!-- QR Code & Calendar Actions -->
+          <div class="bg-paper-base/80 rounded-xl p-4 border border-gold/30 flex items-center gap-4">
+            <div class="bg-white p-2 rounded-lg border border-gold/50 shadow-emboss shrink-0 text-center">
+              <div id="calendar-qr" class="w-24 h-24 flex items-center justify-center"></div>
+              <span class="block font-sans text-[8px] uppercase tracking-widest text-maroon font-semibold mt-1">Scan for Date</span>
             </div>
-
-            <!-- Calendar Instructions & Direct Links -->
-            <div class="text-center sm:text-left">
-              <p class="font-display text-base font-bold text-maroon mb-1">Save the Date to Your Calendar</p>
-              <p class="font-serif text-base text-maroon-soft leading-snug mb-4">
-                Scan the QR code with your phone camera to save <strong>Sunday, 6 December 2026</strong> directly to your calendar, or use the quick links below:
+            <div>
+              <p class="font-display text-sm font-bold text-maroon mb-1">Save the Date</p>
+              <p class="font-serif text-sm text-maroon-soft leading-snug mb-3">
+                Scan QR with your phone or add directly to your calendar:
               </p>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
-                <button onclick="downloadICS()" class="bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full shadow-md transition flex items-center gap-2 cursor-pointer">
+              <div class="flex flex-col gap-2">
+                <button onclick="downloadICS()" class="w-full bg-maroon hover:bg-maroon-deep text-paper-light font-sans text-[10px] font-semibold tracking-wider uppercase px-3 py-2 rounded-lg shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                   <svg class="w-3.5 h-3.5 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   Apple / Outlook (.ics)
                 </button>
                 <a 
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Let+us+celebrate+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Grand+Celebration+of+Ningol+Chakouba+2026&dates=20261206T043000Z/20261206T113000Z&details=Celebrating+the+enduring+relationship+between+brothers+and+sisters%2C+the+joy+of+togetherness+and+the+timeless+values+of+family%2C+tradition+and+belonging.&location=NEIGRIHMS+Indoor+Stadium%2C+Shillong%2C+Meghalaya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="bg-paper-light hover:bg-paper-dark text-maroon border border-gold font-sans text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition">
+                  class="w-full text-center bg-paper-light hover:bg-paper-dark text-maroon border border-gold font-sans text-[10px] font-semibold tracking-wider uppercase px-3 py-2 rounded-lg transition">
                   Google Calendar ↗
                 </a>
               </div>
             </div>
           </div>
 
+          <!-- Quick Jump Links inside Side Menu -->
+          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-between text-xs font-sans uppercase tracking-wider text-maroon-soft">
+            <a href="#heritage" class="hover:text-maroon font-semibold transition flex items-center gap-1">
+              <span>Tradition &amp; Heritage</span>
+              <span>↓</span>
+            </a>
+            <a href="#details" class="hover:text-maroon font-semibold transition flex items-center gap-1">
+              <span>Venue Map</span>
+              <span>↓</span>
+            </a>
+          </div>
         </div>
-      </div>
+
+      </aside>
+
+      <!-- RIGHT MAIN STAGE: Large Featured Invitation Card (8 Columns on Desktop, Order 1 on Mobile) -->
+      <main class="lg:col-span-8 order-1 lg:order-2 flex flex-col items-center">
+        <div class="relative group w-full max-w-2xl">
+          <!-- Stacked 3D Papercraft Backing Layers -->
+          <div class="absolute -inset-2.5 sm:-inset-3 bg-gold/25 rounded-2xl rotate-1 transition-transform duration-500 group-hover:rotate-2"></div>
+          <div class="absolute -inset-2.5 sm:-inset-3 bg-maroon/10 rounded-2xl -rotate-1 transition-transform duration-500 group-hover:-rotate-2"></div>
+          
+          <!-- Primary Invitation Card Frame -->
+          <div class="relative rounded-2xl overflow-hidden shadow-papercraft-lg border-2 border-gold/60 bg-paper-base">
+            <img 
+              id="main-card-img"
+              src="card-hero.png" 
+              alt="Ningol Chakouba 2026 3D Papercraft Invitation Card featuring Pakhangba, Khamen Chatpa, Phanek, and Lotus art"
+              class="w-full h-auto object-contain block cursor-zoom-in"
+              onclick="openLightbox()"
+              onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
+            />
+            <!-- Fallback Display if card-hero.png is not yet placed in folder -->
+            <div id="fallback-art" style="display:none;" class="aspect-[2/3] p-10 flex-col items-center justify-center text-center bg-gradient-to-b from-paper-light to-paper-dark">
+              <div class="w-24 h-24 rounded-full border-2 border-gold flex items-center justify-center mb-4 text-maroon font-display text-3xl">❀</div>
+              <p class="font-display text-maroon font-bold text-xl mb-2">Ningol Chakouba 2026</p>
+              <p class="font-serif italic text-maroon-soft text-lg max-w-md">Place your invitation card image in the same folder named <code class="bg-white/70 px-2 py-0.5 rounded text-sm">card-hero.png</code> to display the full high-resolution artwork here.</p>
+            </div>
+          </div>
+
+          <!-- Card Action Bar Below Large Image -->
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-4">
+            <button onclick="openLightbox()" class="inline-flex items-center gap-2 bg-paper-light hover:bg-paper-dark text-maroon border border-gold/60 px-5 py-2.5 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition cursor-pointer">
+              <svg class="w-4 h-4 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              View Full Screen
+            </button>
+            <a href="card-hero.png" download="Ningol-Chakouba-2026-Invitation.png" class="inline-flex items-center gap-2 bg-maroon hover:bg-maroon-deep text-paper-light px-5 py-2.5 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-sm transition">
+              <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Invitation Card
+            </a>
+          </div>
+        </div>
+      </main>
 
     </div>
   </section>
 
   <!-- TRADITION & HERITAGE OF NINGOL CHAKOUBA SECTION -->
   <section id="heritage" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-paper-base/60 border-y border-gold/25">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <p class="font-sans text-xs uppercase tracking-[0.25em] text-gold-dark font-semibold mb-2">Sacred Cultural Legacy</p>
         <h2 class="font-display text-2xl sm:text-4xl font-bold text-maroon mb-4">Tradition &amp; Heritage of Ningol Chakouba</h2>
@@ -351,7 +342,7 @@
 
   <!-- VENUE & DIRECTIONS SECTION -->
   <section id="details" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 khamen-pattern">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <div class="paper-layer rounded-2xl p-6 sm:p-10 shadow-papercraft grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <!-- Venue Details (5 cols) -->
@@ -416,7 +407,17 @@
   <!-- Bottom Phanek Woven Border -->
   <div class="phanek-stripe w-full"></div>
 
-  <!-- Interactive Scripts: Countdown, QR Code & Calendar Export -->
+  <!-- Full-Screen Lightbox Modal for Inspecting Card Details -->
+  <div id="card-lightbox" class="fixed inset-0 z-50 hidden bg-maroon-deep/90 backdrop-blur-sm p-4 sm:p-8 flex items-center justify-center" onclick="closeLightbox()">
+    <div class="relative max-w-3xl max-h-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="mb-3 self-end bg-paper-light text-maroon hover:bg-gold-light px-4 py-1.5 rounded-full font-sans text-xs uppercase tracking-widest font-semibold shadow-lg cursor-pointer">
+        Close ✕
+      </button>
+      <img src="card-hero.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto rounded-xl border-2 border-gold shadow-2xl" />
+    </div>
+  </div>
+
+  <!-- Interactive Scripts: Countdown, QR Code, Lightbox & Calendar Export -->
   <script>
     // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
     const eventDate = new Date("December 6, 2026 10:00:00 GMT+0530").getTime();
@@ -466,8 +467,8 @@
       if (qrContainer && typeof QRCode !== "undefined") {
         new QRCode(qrContainer, {
           text: vCalendarPayload,
-          width: 112,
-          height: 112,
+          width: 96,
+          height: 96,
           colorDark: "#5A1E28",
           colorLight: "#FFFFFF",
           correctLevel: QRCode.CorrectLevel.M
@@ -485,6 +486,21 @@
       link.click();
       document.body.removeChild(link);
     }
+
+    // 5. Lightbox Controls
+    function openLightbox() {
+      document.getElementById("card-lightbox").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      document.getElementById("card-lightbox").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeLightbox();
+    });
   </script>
 </body>
 </html>
