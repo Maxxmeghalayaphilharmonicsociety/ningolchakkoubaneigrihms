@@ -331,17 +331,17 @@
           <div class="relative z-10 rounded-2xl overflow-hidden shadow-cardCraftLg border-2 border-imperialGold/60 bg-bamboo">
             <img 
               id="main-card-img"
-              src="sample-1-card.jpg" 
+              src="card-hero.png" 
               alt="Ningol Chakouba 2026 Illustrated Invitation Card with Lotus, Marigold, Traditional Attire, and Bamboo Basket"
               class="w-full h-auto object-contain block cursor-zoom-in"
               onclick="openLightbox()"
               onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
             />
-            <!-- Fallback Display if sample-1-card.jpg is not yet placed in folder -->
+            <!-- Fallback Display if card-hero.png is not yet placed in folder -->
             <div id="fallback-art" style="display:none;" class="aspect-[2/3] p-10 flex-col items-center justify-center text-center bg-gradient-to-b from-bamboo-light to-bamboo">
               <div class="w-24 h-24 rounded-full border-2 border-imperialGold flex items-center justify-center mb-4 text-lotus-crimson font-display text-3xl">❀</div>
               <p class="font-display text-lotus-crimson font-bold text-xl mb-2">Ningol Chakouba 2026</p>
-              <p class="font-serif italic text-ink/80 text-lg max-w-md">Place your sample 1 card image in the same folder named <code class="bg-bamboo-light px-2 py-0.5 rounded text-sm text-lotus-crimson">sample-1-card.jpg</code> to display the full high-resolution artwork here.</p>
+              <p class="font-serif italic text-ink/80 text-lg max-w-md">Place your sample 1 card image in the same folder named <code class="bg-bamboo-light px-2 py-0.5 rounded text-sm text-lotus-crimson">card-hero.png</code> to display the full high-resolution artwork here.</p>
             </div>
           </div>
 
@@ -418,7 +418,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-ink mb-4">Gathering Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-ink mb-4">Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-ink/90 mb-6">
             <p>
@@ -430,7 +430,7 @@
               Sunday, December 06, 2026
             </p>
             <p class="text-base text-ink/75 italic">
-              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -489,7 +489,7 @@
           Close ✕
         </button>
       </div>
-      <img id="lightbox-img" src="sample-1-card.jpg" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-imperialGold shadow-2xl" />
+      <img id="lightbox-img" src="card-hero.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-imperialGold shadow-2xl" />
     </div>
   </div>
 
@@ -671,7 +671,7 @@
     // 5. Force Reliable Card Image Download Across Desktop & Mobile Browsers
     async function downloadCardImage() {
       const imgEl = document.getElementById("main-card-img");
-      const imgSrc = imgEl ? imgEl.src : "sample-1-card.jpg";
+      const imgSrc = imgEl ? imgEl.src : "card-hero.png";
       const fileName = "Ningol-Chakouba-2026-Sample-A.jpg";
 
       try {
@@ -688,7 +688,7 @@
         setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
       } catch (err) {
         const link = document.createElement("a");
-        link.href = "sample-1-card.jpg";
+        link.href = "card-hero.png";
         link.download = fileName;
         link.target = "_blank";
         document.body.appendChild(link);
