@@ -155,14 +155,14 @@
 <body class="antialiased selection:bg-festiveGold selection:text-emeraldTeal-deep">
 
   <!-- Hidden YouTube Audio-Only Player Container -->
-  <div class="sr-only" aria-hidden="true">
+  <div style="position:fixed;width:1px;height:1px;opacity:0.01;pointer-events:none;overflow:hidden;bottom:0;right:0;" aria-hidden="true">
     <div id="yt-audio-player"></div>
   </div>
 
   <!-- Top Woven Ribbon Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
 
-  <!-- Top Navigation Bar with Sample A, Sample B Switcher & Music Start/Stop Toggle -->
+  <!-- Top Navigation Bar with Sample A, Sample B, Sample C Switcher & Music Start/Stop Toggle -->
   <header class="sticky top-2 z-40 px-4 pt-3">
     <nav class="max-w-7xl mx-auto bg-emeraldTeal-deep/90 backdrop-blur-md border border-festiveGold/40 rounded-full px-4 sm:px-6 py-2.5 shadow-tealCraft flex flex-wrap items-center justify-between gap-3">
       <a href="index2.html" class="font-display font-bold text-festiveGold-light text-sm sm:text-base tracking-wider flex items-center gap-2.5">
@@ -175,23 +175,22 @@
         <a href="#heritage" class="hidden md:inline hover:text-festiveGold-light transition">Heritage</a>
         <a href="#details" class="hidden md:inline hover:text-festiveGold-light transition">Venue</a>
 
-        <!-- Sample A & Sample B Buttons -->
-        <div class="flex items-center gap-1.5 bg-emeraldTeal-deep border border-festiveGold/40 rounded-full p-1 font-sans text-xs font-semibold">
+        <!-- Sample A, Sample B & Sample C Buttons -->
+        <div class="flex items-center gap-1 bg-emeraldTeal-deep border border-festiveGold/40 rounded-full p-1 font-sans text-xs font-semibold">
           <a 
             href="index.html" 
-            class="px-3.5 py-1.5 rounded-full text-bamboo-light hover:bg-emeraldTeal-mid transition">
+            class="px-3 py-1.5 rounded-full text-bamboo-light hover:bg-emeraldTeal-mid transition">
             Sample A
           </a>
           <a 
             href="index2.html" 
             aria-current="page"
-            class="px-3.5 py-1.5 rounded-full bg-festiveGold text-emeraldTeal-deep font-bold shadow-sm transition">
+            class="px-3 py-1.5 rounded-full bg-festiveGold text-emeraldTeal-deep font-bold shadow-sm transition">
             Sample B
           </a>
-           <a
-            href="index3.html"
-            aria-current="page"
-            class="px-3 py-1.5 rounded-full bg-festiveGold text-emeraldTeal-dee font-bold shadow-sm transition">
+          <a 
+            href="sample3.html" 
+            class="px-3 py-1.5 rounded-full text-bamboo-light hover:bg-emeraldTeal-mid transition">
             Sample C
           </a>
         </div>
@@ -450,7 +449,7 @@
         <!-- Venue Details (5 cols) -->
         <div class="lg:col-span-5">
           <p class="font-sans text-xs uppercase tracking-[0.2em] text-marigold-soft font-semibold mb-2">Location &amp; Directions</p>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Venue</h2>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-festiveGold-light mb-4">Gathering Venue</h2>
           
           <div class="space-y-4 font-serif text-lg text-bamboo-light/95 mb-6">
             <p>
@@ -462,7 +461,7 @@
               Sunday, 6 December 2026
             </p>
             <p class="text-base text-bamboo-DEFAULT italic">
-              Traditional Manipuri attire is warmly encouraged for the celebration and family photographs.
+              Traditional Manipuri attire (Phanek, Innaphi, Khamen Chatpa / Pheijom) is warmly encouraged for the celebration and family photographs.
             </p>
           </div>
 
@@ -556,7 +555,17 @@
       }
     }
 
+    function tryStartPlayback() {
+      if (!ytPlayerReady || !ytPlayer || userStoppedMusic) return;
+      try {
+        ytPlayer.unMute();
+        ytPlayer.setVolume(70);
+        ytPlayer.playVideo();
+      } catch (e) {}
+    }
+
     function onYouTubeIframeAPIReady() {
+      syncMusicUI(false);
       ytPlayer = new YT.Player("yt-audio-player", {
         height: "1",
         width: "1",
@@ -604,24 +613,22 @@
         syncMusicUI(false);
       } else {
         userStoppedMusic = false;
-        ytPlayer.playVideo();
+        tryStartPlayback();
       }
     }
 
     function unlockAudioOnFirstGesture() {
-      if (ytPlayerReady && ytPlayer && !userStoppedMusic && !isMusicPlaying) {
-        ytPlayer.playVideo();
+      if (!userStoppedMusic && !isMusicPlaying) {
+        tryStartPlayback();
       }
     }
 
     function cleanupGestureListeners() {
-      document.removeEventListener("click", unlockAudioOnFirstGesture);
-      document.removeEventListener("touchstart", unlockAudioOnFirstGesture);
+      document.removeEventListener("pointerdown", unlockAudioOnFirstGesture);
       document.removeEventListener("keydown", unlockAudioOnFirstGesture);
     }
 
-    document.addEventListener("click", unlockAudioOnFirstGesture);
-    document.addEventListener("touchstart", unlockAudioOnFirstGesture);
+    document.addEventListener("pointerdown", unlockAudioOnFirstGesture, { passive: true });
     document.addEventListener("keydown", unlockAudioOnFirstGesture);
 
     // 1. Live Countdown to December 6, 2026 (10:00 AM IST)
