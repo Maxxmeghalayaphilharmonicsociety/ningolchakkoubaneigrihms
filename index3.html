@@ -362,17 +362,17 @@
           <div class="relative z-10 rounded-2xl overflow-hidden shadow-plumCraftLg border-2 border-festiveGold/70 bg-royalPlum">
             <img
               id="main-card-img"
-              src="index3.png"
+              src="Sample3.png"
               alt="Ningol Chakouba 2026 Royal Purple Invitation Card with Lotus, Marigold, Lanterns, Traditional Attire, and Bamboo Baskets"
               class="w-full h-auto object-contain block cursor-zoom-in"
               onclick="openLightbox()"
               onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
             />
-            <!-- Fallback Display if index3.png is not yet placed in folder -->
+            <!-- Fallback Display if Sample3.png is not yet placed in folder -->
             <div id="fallback-art" style="display:none;" class="aspect-[2/3] p-10 flex-col items-center justify-center text-center bg-gradient-to-b from-royalPlum-mid to-royalPlum-deep">
               <div class="w-24 h-24 rounded-full border-2 border-festiveGold flex items-center justify-center mb-4 text-festiveGold-light font-display text-3xl">❀</div>
               <p class="font-display text-festiveGold-light font-bold text-xl mb-2">Ningol Chakouba 2026</p>
-              <p class="font-serif italic text-lotusCream-DEFAULT text-lg max-w-md">Place your Sample 3 card image in the same folder named <code class="bg-royalPlum-deep px-2 py-0.5 rounded text-sm text-festiveGold-light">index3.png</code> to display the full high-resolution artwork here.</p>
+              <p class="font-serif italic text-lotusCream-DEFAULT text-lg max-w-md">Place your Sample 3 card image in the same folder named <code class="bg-royalPlum-deep px-2 py-0.5 rounded text-sm text-festiveGold-light">Sample3.png</code> to display the full high-resolution artwork here.</p>
             </div>
           </div>
 
@@ -520,7 +520,7 @@
           Close ✕
         </button>
       </div>
-      <img id="lightbox-img" src="index3.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-festiveGold shadow-2xl" />
+      <img id="lightbox-img" src="Sample3.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-festiveGold shadow-2xl" />
     </div>
   </div>
 
@@ -694,7 +694,7 @@
     // 5. Force Reliable Card Image Download Across Desktop & Mobile Browsers
     async function downloadCardImage() {
       const imgEl = document.getElementById("main-card-img");
-      const imgSrc = imgEl ? imgEl.src : "index3.png";
+      const imgSrc = imgEl ? imgEl.src : "Sample3.png";
       const fileName = "Ningol-Chakouba-2026-Sample-C.png";
 
       try {
@@ -711,7 +711,7 @@
         setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
       } catch (err) {
         const link = document.createElement("a");
-        link.href = "index3.png";
+        link.href = "Sample3.png";
         link.download = fileName;
         link.target = "_blank";
         document.body.appendChild(link);
