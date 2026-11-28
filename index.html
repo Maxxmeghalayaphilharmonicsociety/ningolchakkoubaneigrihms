@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ningol Chakouba 2026 | Sample C Celebration in Shillong</title>
+  <title>Ningol Chakouba 2026 | Celebration in Shillong</title>
   <meta name="description" content="You and your entire family members are cordially invited to the Grand Celebration of Ningol Chakouba on December 6, 2026 at NEIGRIHMS Indoor Stadium, Shillong." />
 
   <!-- Google Fonts -->
@@ -162,7 +162,7 @@
   <!-- Top Woven Ribbon Border -->
   <div class="phanek-stripe w-full sticky top-0 z-50"></div>
 
-  <!-- Top Navigation Bar with Sample Switcher & Music Start/Stop Toggle -->
+  <!-- Top Navigation Bar with Music Start/Stop Toggle -->
   <header class="sticky top-2 z-40 px-4 pt-3">
     <nav class="max-w-7xl mx-auto bg-royalPlum-deep/90 backdrop-blur-md border border-festiveGold/45 rounded-full px-4 sm:px-6 py-2.5 shadow-plumCraft flex flex-wrap items-center justify-between gap-3">
       <a href="index3.html" class="font-display font-bold text-festiveGold-light text-sm sm:text-base tracking-wider flex items-center gap-2.5">
@@ -175,8 +175,6 @@
         <a href="#heritage" class="hidden md:inline hover:text-festiveGold-light transition">Heritage</a>
         <a href="#details" class="hidden md:inline hover:text-festiveGold-light transition">Venue</a>
 
-        <!-- Sample A, Sample B & Sample C Buttons -->
-       
         <!-- Start / Stop Music Toggle Button -->
         <button
           type="button"
@@ -191,6 +189,18 @@
       </div>
     </nav>
   </header>
+
+  <!-- TOP BANNER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <div class="rounded-2xl overflow-hidden border-2 border-festiveGold/65 shadow-plumCraft bg-royalPlum-deep">
+      <img
+        src="BAnner.jpg"
+        alt="Welcome to Ningol Chakouba Grand Celebration - 6 December 2026 (Sunday) at 10:00 AM, Neigrihms Indoor Stadium, Shillong"
+        class="w-full h-auto object-cover block cursor-zoom-in"
+        onclick="openLightbox('BAnner.jpg')"
+      />
+    </div>
+  </div>
 
   <!-- MAIN SHOWCASE: Left Side Panel (Details & Large QR with Dragon) + Right Large Card Stage -->
   <section id="invitation" class="relative pt-6 pb-16 md:py-12 px-4 sm:px-6 lg:px-8 mandala-purple-pattern">
@@ -347,7 +357,7 @@
               src="Sample3.png"
               alt="Ningol Chakouba 2026 Royal Purple Invitation Card with Lotus, Marigold, Lanterns, Traditional Attire, and Bamboo Baskets"
               class="w-full h-auto object-contain block cursor-zoom-in"
-              onclick="openLightbox()"
+              onclick="openLightbox('Sample3.png')"
               onerror="this.style.display='none'; document.getElementById('fallback-art').style.display='flex';"
             />
             <!-- Fallback Display if Sample3.png is not yet placed in folder -->
@@ -360,7 +370,7 @@
 
           <!-- Card Action Bar Below Large Image -->
           <div class="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-4">
-            <button type="button" onclick="openLightbox()" class="inline-flex items-center gap-2 bg-royalPlum-mid hover:bg-royalPlum-light text-lotusCream-light border border-festiveGold/60 px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-md transition cursor-pointer">
+            <button type="button" onclick="openLightbox('Sample3.png')" class="inline-flex items-center gap-2 bg-royalPlum-mid hover:bg-royalPlum-light text-lotusCream-light border border-festiveGold/60 px-6 py-3 rounded-full text-xs font-sans uppercase tracking-widest font-semibold shadow-md transition cursor-pointer">
               <svg class="w-4 h-4 text-festiveGold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               View Full Screen
             </button>
@@ -472,6 +482,18 @@
     </div>
   </section>
 
+  <!-- BOTTOM BANNER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="rounded-2xl overflow-hidden border-2 border-festiveGold/65 shadow-plumCraft bg-royalPlum-deep">
+      <img
+        src="BAnner.jpg"
+        alt="Welcome to Ningol Chakouba Grand Celebration - 6 December 2026 (Sunday) at 10:00 AM, Neigrihms Indoor Stadium, Shillong"
+        class="w-full h-auto object-cover block cursor-zoom-in"
+        onclick="openLightbox('BAnner.jpg')"
+      />
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="bg-royalPlum-deep text-lotusCream-light pt-12 pb-8 px-4 text-center border-t border-festiveGold/25">
     <div class="max-w-3xl mx-auto">
@@ -491,7 +513,7 @@
   <!-- Bottom Woven Ribbon Border -->
   <div class="phanek-stripe w-full"></div>
 
-  <!-- Full-Screen Lightbox Modal for Inspecting Card Details -->
+  <!-- Full-Screen Lightbox Modal for Inspecting Card or Banner Details -->
   <div id="card-lightbox" class="fixed inset-0 z-50 hidden bg-royalPlum-deep/95 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center" onclick="closeLightbox()">
     <div class="relative max-w-4xl w-full max-h-full flex flex-col items-center" onclick="event.stopPropagation()">
       <div class="w-full max-w-xl flex items-center justify-between mb-3">
@@ -502,7 +524,7 @@
           Close ✕
         </button>
       </div>
-      <img id="lightbox-img" src="Sample3.png" alt="Ningol Chakouba 2026 Full Resolution Invitation Card" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-festiveGold shadow-2xl" />
+      <img id="lightbox-img" src="Sample3.png" alt="Ningol Chakouba 2026 Full Resolution View" class="max-h-[82vh] w-auto max-w-full object-contain rounded-xl border-2 border-festiveGold shadow-2xl" />
     </div>
   </div>
 
@@ -703,11 +725,13 @@
     }
 
     // 6. Full-Screen Lightbox Controls
-    function openLightbox() {
+    function openLightbox(src) {
       const lightbox = document.getElementById("card-lightbox");
       const mainImg = document.getElementById("main-card-img");
       const lightboxImg = document.getElementById("lightbox-img");
-      if (mainImg && mainImg.src) {
+      if (src) {
+        lightboxImg.src = src;
+      } else if (mainImg && mainImg.src) {
         lightboxImg.src = mainImg.src;
       }
       lightbox.classList.remove("hidden");
